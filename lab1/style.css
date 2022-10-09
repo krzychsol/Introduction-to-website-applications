@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#p1{
+    background-color: aqua;
+    margin: 0 15px 20px 15px;
+    padding: 20px 0 20px 0;
+    border: 3px solid black;
+    font-style: italic;
+    font-weight: bold;
+    color: black;
+    font-size: large;
+}
+
+#p2{
+    background-image: url('carbon_fibre.webp');
+    margin: 0 15px 20px 15px;
+    padding: 20px 0 20px 0;
+    border: 5px dotted #fff;
+    color: whitesmoke;
+    font-weight: 900;
+    font-style: oblique;
+    font-size: 20px;
+    width: 1400px;
+    height: 150px;
+}
+
+#p3{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,48,1) 35%, rgba(255,0,0,1) 100%);
+    margin: 0 15px 20px 15px;
+    padding: 20px 0 20px 0;
+    border: 3px solid black;
+    border-radius: 25px 0 0 0;
+    color: wheat;
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+    font-size: 1.2em;
+    width: 95%;
+    height: 50px;
+    overflow: scroll;
+}
+
+#p4{
+    background-image: url('bg-img.jpg');
+    background-origin: padding-box;
+    margin: 0 15px 20px 15px;
+    padding: 20px 0 20px 0;
+    border: 4px dashed white;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+}
+
+.tg  {
+    width: 50%;
+    height: 200px;
+    border-collapse:collapse;
+    border-spacing:1px;
+}
+
+.tg td{
+    margin-left: 1px;
+    margin-right: 1px;
+    background-color: #5b9cd1;
+    word-break:normal;
+}
+
+.tg th{
+    background-color: #5b9cd6;
+    border-color:black;
+    border-style:solid;
+    border-width:1px;
+    font-family:Arial, sans-serif;
+    font-size:14px;
+    font-weight:normal;
+    overflow:hidden;
+    padding:10px 5px;
+    word-break:normal;
+}
+
+.tg .tg-0lax{
+    text-align:left;
+    vertical-align:top
+}
