@@ -57,34 +57,56 @@
     font-style: italic;
 }
 
-.tg  {
-    width: 50%;
-    height: 200px;
+#first-table {
+    border:2px solid #ffffff;
     border-collapse:collapse;
-    border-spacing:1px;
+    border-spacing:3px;
+    padding:5px;
+    width: 60%;
+    height: 300px;
+}
+#first-table th {
+    border:2px solid #ffffff;
+    border-bottom: 5px solid #fff;
+    padding:5px;
+    background: #5c76c1;
+    color: #313030;
+    height: 40px;
+}
+#first-table td {
+    border:2px solid #ffffff;
+    text-align:center;
+    padding:5px;
+    color: #313030;
 }
 
-.tg td{
-    margin-left: 1px;
-    margin-right: 1px;
-    background-color: #5b9cd1;
-    word-break:normal;
+#first-table tr:nth-child(odd){
+    background: #bdd6e5;
 }
 
-.tg th{
-    background-color: #5b9cd6;
-    border-color:black;
-    border-style:solid;
-    border-width:1px;
-    font-family:Arial, sans-serif;
-    font-size:14px;
-    font-weight:normal;
-    overflow:hidden;
-    padding:10px 5px;
-    word-break:normal;
+#first-table tr:nth-child(even){
+    background: #d8e2e9;
 }
 
-.tg .tg-0lax{
-    text-align:left;
-    vertical-align:top
+#second-table {
+    border:2px solid #ffffff;
+    border-collapse:collapse;
+    border-spacing:3px;
+    padding:5px;
+    width: 60%;
+    height: 300px;
+}
+#second-table th {
+    border:2px solid #ffffff;
+    border-bottom: 5px solid #fff;
+    padding:5px;
+    background: #5c76c1;
+    color: #313030;
+    height: 40px;
+}
+#second-table td {
+    border:2px solid #ffffff;
+    text-align:center;
+    padding:5px;
+    color: #313030;
 }
