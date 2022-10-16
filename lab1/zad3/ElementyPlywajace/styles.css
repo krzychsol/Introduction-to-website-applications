@@ -1,0 +1,70 @@
+body {
+	font-family: Tahoma, "Lucida Grande", Arial, sans-serif;
+	font-size: 62.5%;
+}
+h1 {
+	font-size: 2.4em;
+}
+h2 {
+	font-size: 1.8em;
+	color: #666666;
+}
+h3 {
+	font-size: 1.4em;
+	color: #14556B;
+}
+p, ul, ol {
+	font-size: 1.2em;
+	line-height: 130%;
+}
+
+ul {
+	color: #666666;
+	list-style: square;
+}
+
+.container{
+	width: 40%;
+	background-color: rgb(240, 255, 240);
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40px;
+}
+
+.site-header{
+	width: 100%;
+	background-color: rgb(3, 61, 47);
+	border-top: 2px solid yellow;
+	border-bottom: 2px solid yellow;
+}
+
+.site-header-content{
+	color: white;
+	margin-left: 20px;
+}
+
+.site-aside{
+	float: right;
+	background-color: rgb(255, 255, 103);
+	width: 30%;
+	margin-top: 10px;
+	border: 1px solid orange;
+	border-top: 4px solid orange;
+}
+
+.site-aside-title{
+	width: 100%;
+	text-align: center;
+	font-weight: 900;
+	color: black;
+	font-size: 1.2em;
+}
+
+.site-aside-content{
+	font-size: 1.2em;
+	margin-left: 5px;
+}
+
+.site-aside-content ul{
+	list-style-type:disc;
+}
