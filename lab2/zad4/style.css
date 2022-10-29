@@ -58,6 +58,12 @@ li:focus-within a{
     cursor: pointer;
 }
 
+.dropdown li:hover{
+    background-color: rgb(21, 158, 204);
+    color: #fff;
+    transition: 0.3s ease-in-out;
+}
+
 ul li:hover > ul,
 ul li:focus-within > ul,
 ul li ul:hover,
@@ -68,7 +74,7 @@ ul li ul:focus{
 }
 
 .navbar{
-    width: 100%;
+    width: 100vw;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -77,11 +83,33 @@ ul li ul:focus{
     color: #fff;
 }
 
+@media(max-width: 600px){
+    .navbar{
+        flex-direction: column;
+    }
+
+    .logo{
+        text-align: center;
+        margin: 0;
+    }
+
+    .nav-links{
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
 @media(max-width:1000px){
     .navbar{
         flex-direction: column;
     }
 
+    .logo{
+        text-align: center;
+        margin: 0;
+    }
+    
 }
 
 .nav-links{
@@ -107,6 +135,8 @@ ul li ul:focus{
 .nav-buttons{
     margin-right: 5vw;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .login-btn{
@@ -122,6 +152,13 @@ ul li ul:focus{
     cursor: pointer;
 }
 
+.login-btn:hover{
+    background-color: #fff;
+    border: 2px solid #fff;
+    color: rgb(21, 158, 204);
+    transition: 0.3s ease-in-out;
+}
+
 .sign-up-btn{
     text-transform: uppercase;
     background-color: #fff;
@@ -134,3 +171,9 @@ ul li ul:focus{
     cursor: pointer;
 }
 
+.sign-up-btn:hover{
+    background-color: rgb(21, 158, 204);
+    border: 2px solid #fff;
+    color: #fff;
+    transition: 0.3s ease-in-out;
+}
