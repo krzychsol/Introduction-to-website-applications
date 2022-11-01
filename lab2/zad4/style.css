@@ -64,10 +64,8 @@ li:focus-within a{
     transition: 0.3s ease-in-out;
 }
 
-ul li:hover > ul,
-ul li:focus-within > ul,
-ul li ul:hover,
-ul li ul:focus{
+.nav-links li:hover > ul,
+.nav-links li ul:hover{
     visibility: visible;
     opacity: 1;
     display: block;
