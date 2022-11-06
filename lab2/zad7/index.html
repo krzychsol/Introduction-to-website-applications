@@ -8,25 +8,44 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="mini-preview">
-        <img src="data/mini-img.jpg" alt="mini-img">
-    </div>
-    <div class="control-buttons">
-        
-    </div>
-    <div class="video-call">
-        <img src="data/video-call-img.webp" alt="video-call-img">
-        <div class="video-call-buttons">
-            <div class="call-btn" >
-                <img src="data/microphone.png" alt="microphone-on-off">
+    <section class="video-call-container">
+        <div class="mini-preview">
+            <img src="data/mini-img.jpg" alt="mini-img">
+        </div>
+        <div class="control-buttons">
+            <div class="control-item">
+                <img src="data/microphone.png" alt="mini-micro">
             </div>
-            <div class="call-btn">
-                <img src="data/video-camera.png" alt="camera-on-off">
+            <div class="control-item">
+                <img src="data/video-camera.png" alt="mini-camera">
             </div>
-            <div class="call-btn">
-                <img src="data/disconnected.png" alt="disconnect">
+            <div class="control-item">
+                <button>&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            </div>
+            <div class="control-item">
+                <button>&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            </div>
+            <div class="control-item">
+                <button>&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            </div>
+            <div class="control-item">
+                <button>&nbsp;&nbsp;&nbsp;&nbsp;</button>
             </div>
         </div>
-    </div>
+        <div class="video-call">
+            <img src="data/video-call-img.webp" alt="video-call-img">
+            <div class="video-call-buttons">
+                <div class="call-btn" >
+                    <img src="data/microphone.png" alt="microphone-on-off">
+                </div>
+                <div class="call-btn">
+                    <img src="data/video-camera.png" alt="camera-on-off">
+                </div>
+                <div class="call-btn" id="disconnect-btn">
+                    <img src="data/disconnected.png" alt="disconnect">
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

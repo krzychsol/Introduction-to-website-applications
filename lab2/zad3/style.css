@@ -18,7 +18,7 @@
 @media (min-width: 0px){
     .main-item picture img{
         width: 250px;
-        height: 150px;
+        height: fit-content;
     }
 
     .card{
@@ -29,7 +29,7 @@
 @media (min-width: 1000px){
     .main-item picture img{
         width: 350px;
-        height: 230px;
+        height: fit-content;
     }
 
     .card{
@@ -40,7 +40,7 @@
 @media (min-width: 1700px){
     .main-item picture img{
         width: 450px;
-        height: 300px;
+        height: fit-content;
     }
 
     .card{

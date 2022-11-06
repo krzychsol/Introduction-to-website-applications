@@ -81,35 +81,6 @@ li:focus-within a{
     color: #fff;
 }
 
-@media(max-width: 600px){
-    .navbar{
-        flex-direction: column;
-    }
-
-    .logo{
-        text-align: center;
-        margin: 0;
-    }
-
-    .nav-links{
-        display: flex;
-        flex-direction: column;
-    }
-
-}
-
-@media(max-width:1000px){
-    .navbar{
-        flex-direction: column;
-    }
-
-    .logo{
-        text-align: center;
-        margin: 0;
-    }
-    
-}
-
 .nav-links{
     display: flex;
     flex-direction: row;
@@ -118,7 +89,6 @@ li:focus-within a{
     font-size: 1.2em;
     font-weight: 200;
 }
-
 
 .logo{
     font-size: 1.4em;
@@ -174,4 +144,43 @@ li:focus-within a{
     border: 2px solid #fff;
     color: #fff;
     transition: 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 1000px){
+    .navbar{
+        flex-direction: column;
+    }
+
+    .logo{
+        text-align: center;
+        margin: 0;
+    }
+
+    .nav-buttons{
+        margin-bottom: 10px;
+    }
+
+    .nav-links{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .dropdown{
+        position: relative;
+        border: 3px solid rgb(14, 97, 125);
+        border-radius: 30px;
+        width: 70vw;
+    }
+
+    .dropdown li:nth-child(1){
+        border-top-left-radius: 26px;
+        border-top-right-radius: 26px;
+    }
+
+    .dropdown li:nth-child(4){
+        border-bottom-left-radius: 26px;
+        border-bottom-right-radius: 26px;
+    }    
 }
