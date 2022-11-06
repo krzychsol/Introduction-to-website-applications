@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 body{
-    font-family: 'Inter', sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin:40px;
 }
 
-.shoe-container{
+.container{
     display:flex;
     flex-direction: row;
     height:400px;
@@ -13,7 +13,7 @@ body{
     position: relative;
 }
 
-.color-choose{
+.shoes-color{
     position:absolute;
     width:16px;
     height:16px;
@@ -24,110 +24,109 @@ body{
     z-index:3;
     outline: hidden;
     transition: 300ms ease all;
+    margin-top: 5px;
 }
 
-.color-choose.checked{
+.shoes-color.checked{
     outline: 5px solid white;
 }
 
-.color-choose:hover{
+.shoes-color:hover{
     cursor:pointer;
     outline: 5px solid white;
     transition: 300ms ease all;
 }
 
-
-
-.color-choose#red{
+.shoes-color#red{
     background-color:red;
     left:320px;
     top:232px;
 }
-.color-choose#red:hover ~ .left-container .left-inner{
+.shoes-color#red:hover ~ .left-side .left-inner{
     background-color:red;
 }
 
-.color-choose#red:hover ~ .right-container .bg-color{
+.shoes-color#red:hover ~ .right-side .bg-color{
     background-color:red;
 }
 
-.color-choose#red:hover ~ .left-container .left-inner img{
+.shoes-color#red:hover ~ .left-side .left-inner img{
     filter: sepia(100%) brightness(92%) hue-rotate(318deg) saturate(292%) contrast(102%);
     -webkit-filter: sepia(100%) brightness(92%) hue-rotate(318deg) saturate(292%) contrast(102%);
     -moz-filter: sepia(100%) brightness(92%) hue-rotate(318deg) saturate(292%) contrast(102%);
 }
 
-.color-choose#blue{
+.shoes-color#blue{
     background-color:blue;
     left:350px;
     top:232px;
 }
-.color-choose#blue:hover ~ .right-container .bg-color{
+.shoes-color#blue:hover ~ .right-side .bg-color{
     background-color:blue;
 }
 
-.color-choose#blue:hover ~ .left-container .left-inner{
+.shoes-color#blue:hover ~ .left-side .left-inner{
     background-color:blue;
 }
 
-.color-choose#green{
+.shoes-color#green{
     background-color:green;
     left:380px;
     top:232px;
 }
-.color-choose#green:hover ~ .left-container .left-inner{
+.shoes-color#green:hover ~ .left-side .left-inner{
     background-color:green;
 }
 
-.color-choose#green:hover ~ .right-container .bg-color{
+.shoes-color#green:hover ~ .right-side .bg-color{
     background-color:green;
 }
 
-.color-choose#green:hover ~ .left-container .left-inner img{
+.shoes-color#green:hover ~ .left-side .left-inner img{
     filter: grayscale(7%) sepia(100%) brightness(81%) hue-rotate(102deg) saturate(1000%) contrast(69%);
     -webkit-filter: grayscale(7%) sepia(100%) brightness(81%) hue-rotate(102deg) saturate(1000%) contrast(69%);
     -moz-filter: grayscale(7%) sepia(100%) brightness(81%) hue-rotate(102deg) saturate(1000%) contrast(69%);
 }
 
-.color-choose#orange{
+.shoes-color#orange{
     background-color:orange;
     left:410px;
     top:232px;
 }
-.color-choose#orange:hover ~ .left-container .left-inner{
+.shoes-color#orange:hover ~ .left-side .left-inner{
     background-color:orange;
 }
 
-.color-choose#orange:hover ~ .right-container .bg-color{
+.shoes-color#orange:hover ~ .right-side .bg-color{
     background-color:orange;
 }
 
-.color-choose#orange:hover ~ .left-container .left-inner img{
+.shoes-color#orange:hover ~ .left-side .left-inner img{
     filter: grayscale(7%) sepia(100%) brightness(81%) hue-rotate(17deg) saturate(1000%) contrast(69%);
     -webkit-filter: grayscale(7%) sepia(100%) brightness(81%) hue-rotate(17deg) saturate(1000%) contrast(69%);
     -moz-filter: grayscale(7%) sepia(100%) brightness(81%) hue-rotate(17deg) saturate(1000%) contrast(69%);
 }
 
-.color-choose#black{
+.shoes-color#black{
     background-color:black;
     left:440px;
     top:232px;
 }
-.color-choose#black:hover ~ .left-container .left-inner{
+.shoes-color#black:hover ~ .left-side .left-inner{
     background-color:black;
 }
 
-.color-choose#black:hover ~ .right-container .bg-color{
+.shoes-color#black:hover ~ .right-side .bg-color{
     background-color:black;
 }
 
-.color-choose#black:hover ~ .left-container .left-inner img{
+.shoes-color#black:hover ~ .left-side .left-inner img{
     filter: grayscale(100%) sepia(98%) brightness(66%) hue-rotate(30deg) saturate(0%) contrast(226%);
     -webkit-filter: grayscale(100%) sepia(98%) brightness(66%) hue-rotate(30deg) saturate(0%) contrast(226%);
     -moz-filter: grayscale(100%) sepia(98%) brightness(66%) hue-rotate(30deg) saturate(0%) contrast(226%);
 }
 
-.left-container{
+.left-side{
     position:relative;
     flex-basis:45%;
     margin:0;
@@ -164,7 +163,7 @@ body{
     transform: translate(0,-30%);
 }
 
-.right-container{
+.right-side{
     flex-basis:55%;
     display:flex;
     flex-direction: column;
@@ -174,11 +173,11 @@ body{
     z-index:2;
 }
 
-.right-container div:nth-child(1){
+.right-side div:nth-child(1){
     margin-top:10px;
 }
 
-.right-container div{
+.right-side div{
     margin-left:20px;
     margin-right:20px;
 }
@@ -211,11 +210,11 @@ body{
     color:rgb(41, 41, 41);
 }
 
-.right-desc, .right-color-choose, .right-size-choose{
+.right-desc, .right-shoes-color, .right-size-choose{
     border-bottom: 1px solid lightgray;
 }
 
-#title2{
+.info{
     font-weight:900;
     font-size:17px;
     margin-bottom:5px;
@@ -229,7 +228,7 @@ body{
     color:gray;
 }
 
-p.size-elem{
+p.size-number{
     padding: 5px 10px 5px 10px;
     border-radius: 5px;
     margin:8px;
@@ -239,17 +238,20 @@ p.size-elem{
     font-size:12px;
 }
 
-.size-elem#checked{
+.size-number#checked{
     color:white;
     background-color: rgb(23, 70, 197);
 }
 
-.right-color-choose{
+.right-shoes-color{
     padding-bottom:30px;
 }
+
+
 .right-size-choose{
     margin-bottom:0px;
 }
+
 .right-footer{
     display:flex;
     flex-direction: row;
