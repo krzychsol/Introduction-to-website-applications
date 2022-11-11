@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="addItem">Dodaj</button>
+    <button id="removeItem">Usuń</button>
+    <ul id="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ul>
+
+    <script>
+        document.getElementById('addItem').onclick = function(){
+            let ul = document.getElementsByTagName('ul')[0];
+            let li = document.createElement('li');
+            var cnt = ul.childElementCount+1;
+            li.innerText = "item nr "+cnt;
+            ul.appendChild(li);
+        }
+
+        document.getElementById('removeItem').onclick = function(){
+            let ul = document.getElementsByTagName('ul')[0];
+            ul.removeChild(ul.firstChild);
+        }
+    </script>
+</body>
+</html>
