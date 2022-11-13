@@ -1,0 +1,34 @@
+{
+    "pracownicy":[
+        {
+            "name": "1.Ania Kowalska",
+            "title": "Project Manager",
+            "img": "img1.jpg",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        },
+        {
+            "name": "2.Marcin Nowak",
+            "title": "Senior Fullstack Developer",
+            "img": "img2.jpg",
+            "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed obcaecati, maxime eligendi dolore consequatur facere odit ipsum eos iste ut in. Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        },
+        {
+            "name": "3.Wiktoria Rutyna",
+            "title": "Team Leader",
+            "img": "img3.jpg",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam natus accusantium quos exercitationem nihil quam quaerat iste.Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        },
+        {
+            "name": "4.Arkadiusz Milik",
+            "title": "Junior PHP Developer",
+            "img": "img4.jpg",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        },
+        {
+            "name": "5.Maciej Musiał",
+            "title": "Scrum Master",
+            "img": "img5.jpg",
+            "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, pariatur assumenda consequatur sapiente, veritatis id blanditiis aperiam.Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        }
+    ]
+}

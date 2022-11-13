@@ -6,31 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link href='https://css.gg/trash.css' rel='stylesheet'>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="container">
         <div id="entries"></div>
         <div class="form-container">
             <form action="#">
-                <span>Imię i nazwisko</span>
-                <input 
-                    type="text"
-                    required="true"
-                    id="name"
-                    name="name"
-                    class="text-input"
-                    required pattern="[A-Z]{1}[a-z]+[ ]{1}[A-Z]{1}[a-z]+">
-                <span>Telefon</span>
-                <input type="text"
-                    required="true"
-                    id="phone"
-                    name="phone"
-                    class="text-input"
-                    required pattern="[0-9]{9}">
-                <button id="add" class="button">Dodaj</button>
+                <div class="form-container-input">
+                    <span>Imię i nazwisko</span>
+                    <input 
+                        type="text"
+                        required="true"
+                        id="name"
+                        name="name"
+                        class="text-input"
+                        required pattern="^[\p{Lu}]{1}[\p{Ll}\-]+[ ]{1}[\p{Lu}]{1}[\p{Ll}\-]+([ ]?[\p{Lu}]{1}[\p{Ll}\-]+)?$">
+                </div>
+                <div class="form-container-input">
+                    <span>Telefon</span>
+                    <input type="text"
+                        required="true"
+                        id="phone"
+                        name="phone"
+                        class="text-input"
+                        required pattern="^([+]{1}[\s]?([0-9]{1}[\s]?){12})$|^(([0-9]{1}[\s]?){9})$">
+                </div>
+                <div class="form-container-input">
+                    <input type="button" id="add" class="button" value="Dodaj">
+                </div>
             </form>
         </div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>

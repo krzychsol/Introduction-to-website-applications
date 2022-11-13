@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link href='https://css.gg/check-o.css' rel='stylesheet'>
+    <link href='https://css.gg/close-o.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/db05d53baf.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="form-container">
+        <h3 id="alert"></h3>
+        <form action="#">
+            <label for="pass">New password</label>
+            <input type="password" id="pass" name="pass">
+            <i class="fa-solid fa-eye-slash" id="pass-eye"></i>
+            <label for="rep-pass">Repeat new password</label>
+            <input type="password" id="rep-pass" name="rep-pass">
+            <i class="fa-solid fa-eye-slash" id="rep-pass-eye"></i>
+        </form>
+        <p id="req-p">Password requirements</p>
+        <div class="req">
+            <i class="gg-close-o" id="req1"></i>
+            <p>at least 8 characters</p>
+        </div>
+        <div class="req">
+            <i class="gg-close-o" id="req2"></i>
+            <p>at least one special character</p>
+        </div>
+        <div class="req">
+            <i class="gg-close-o" id="req3"></i>
+            <p>at least one capital letter</p>
+        </div>
+        <div class="req">
+            <i class="gg-close-o" id="req4"></i>
+            <p>at least one digit</p>
+        </div>
+    </div>
+</body>
+</html>

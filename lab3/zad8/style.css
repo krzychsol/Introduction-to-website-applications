@@ -1,0 +1,80 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+form i{
+    text-align: right;
+    position: relative;
+    top: -28px;
+    right: 10px;
+    width: 16px;
+    margin-left: 90%;
+    
+    cursor: pointer;
+}
+
+label{
+    font-size: 1.2em;
+    color:rgb(0, 0, 0,0.8);
+    margin-bottom: 10px;
+}
+
+input{
+    height: 25px;
+    border: 1px solid rgb(0, 0, 0,0.8);
+    border-radius: 3px;
+    margin-bottom: 5px;
+    width: 25vw;
+    min-width: 200px;
+    max-width: 250px;
+}
+
+#req-p{
+    font-size: 1.2em;
+    color:rgb(0, 0, 0,0.8);
+}
+
+.req{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#alert{
+    color: red;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.req i{
+    margin-right: 5px;
+}
+
+.gg-close-o{
+    background-color: rgb(128, 128, 128,0.3);
+    color: white;
+}
+
+.gg-check-o{
+    background-color:rgb(1, 175, 175);
+    color: white;
+}

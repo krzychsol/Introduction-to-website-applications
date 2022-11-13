@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+body{
+    background-color: rgb(218, 241, 244);
+    font-family: 'Roboto Slab', sans-serif;
+}
+
+.fa-solid{
+    color: rgb(47, 132, 175);
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.slider-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 60px 0 60px;
+}
+
+.slide{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.images{
+    width: 150px;
+    height: auto;
+    border-radius: 80px;
+    border: 3px solid white;
+}
+
+#slash{
+    color:rgb(21, 160, 198);
+}
+
+#name{
+    color:rgb(21, 160, 198);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2px;
+}
+
+#title,#content{
+    color:rgb(97, 143, 148);
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.btn{
+    background-color: rgb(47, 132, 175);
+    border: none;
+    height: 40px;
+    width: 180px;
+    color: rgb(218, 241, 244);
+    border-radius: 20px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+#char{
+    margin-top: 0;
+    font-size: 80px;
+    color:rgb(21, 160, 198);
+}
