@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="score-container"><p id="score"></p></div>
+    <div class="login-container"><p id="login"></p></div>
+    <div class="health-container"><p id="health"></p></div>
+    <div class="purplecontainer" id="userinfo-container" >
+        <div class="userinfo" class="inner">
+            <h1>Enter your username</h1>
+            <input type="text" id="username" name="username" 
+            required pattern="([a-z]|[A-Z]|[0-9]){3,15}">
+            <button id="startgame">START</button>
+            <p id="infouser">Min 3 characters</p>
+            <p id="infouser">Max 15 characters</p>
+            <p id="infouser">Only letters and numbers</p>
+        </div>
+    </div>
+    <div id="hs-container" class="purplecontainer">
+        <div id="hs" class="inner">
+            <h1>You are defeated!</h1>
+            <h2>Leaderboards</h2>
+            <ol id="hs-list"></ol>
+            <button id="startgame2">PLAY AGAIN</button>
+        </div>
+    </div>
+    <div id="board"></div>
+    <div id="customcursor">
+        <div id="dot"></div>
+    </div>
+</body>
+</html>
