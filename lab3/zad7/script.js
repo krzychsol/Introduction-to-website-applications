@@ -1,17 +1,21 @@
 async function getData() {
-    var res = await fetch("http://localhost:3000/cities");
-    var json = await res.json();
-    return json;
+    try {
+        var res = await fetch("http://localhost:3000/cities");
+        var json = await res.json();
+        return json;
+    } catch(e) {
+        console.log(e);
+    }
 }
 
 function fillData(filtered,id) {
     var cities = "";
 
-    for (var prop in filtered) {
-        if (!filtered.hasOwnProperty(prop)) {
+    for (var el in filtered) {
+        if (!filtered.hasOwnProperty(el)) {
             continue;
         }
-        cities += filtered[prop].name + ", ";
+        cities += filtered[el].name + ", ";
     }
     cities = cities.substring(0, cities.length - 2);
     cities = cities + ".";
@@ -51,8 +55,8 @@ async function getC(data) {
     var json = data;
     var cities_dentensity = new Array;
 
-    for (var prop in json) {
-        cities_dentensity.push([json[prop].name, json[prop].dentensity]);
+    for (var el in json) {
+        cities_dentensity.push([json[el].name, json[el].dentensity]);
     }
 
     cities_dentensity.sort(function (a, b) {
@@ -76,11 +80,11 @@ async function getD(data) {
 
     var cities = "";
 
-    for (var prop in filtered) {
-        if (!filtered.hasOwnProperty(prop)) {
+    for (var el in filtered) {
+        if (!filtered.hasOwnProperty(el)) {
             continue;
         }
-        cities += filtered[prop].name + " city, ";
+        cities += filtered[el].name + " city, ";
     }
     cities = cities.substring(0, cities.length - 2);
     cities = cities + ".";
@@ -92,8 +96,8 @@ async function getE(data) {
     var cntAbove = 0;
     var cntUnder = 0;
 
-    for (var prop in json) {
-        if (json[prop].people > 80000) {
+    for (var el in json) {
+        if (json[el].people > 80000) {
             cntAbove++;
         }
         else {
@@ -124,9 +128,9 @@ async function getF(data) {
     var sum_of_area = 0;
     var cities_cnt = 0;
 
-    for (var prop in json) {
-        if (json[prop].township.charAt(0) == 'P') {
-            sum_of_area += json[prop].area;
+    for (var el in json) {
+        if (json[el].township.charAt(0) == 'P') {
+            sum_of_area += json[el].area;
             cities_cnt += 1;
         }
     }
@@ -142,8 +146,8 @@ async function getG(data) {
     var answer = true;
     var cities_cnt = 0;
     console.log(filtered);
-    for (var prop in filtered) {
-        if (!json[prop].people > 5000) {
+    for (var el in filtered) {
+        if (!json[el].people > 5000) {
             answer = false;
             break;
         }

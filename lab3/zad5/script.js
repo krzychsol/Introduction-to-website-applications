@@ -1,152 +1,93 @@
-var points = 0
-var clicked = false
-var propagation = true
+var cnt = 0
+var prop = true
+var change = false
 
-var blue_clicked = false
-var red_clicked = false
-var yellow_clicked = false
+var blue = document.getElementById('blue');
+var red = document.getElementById('red');
+var yellow = document.getElementById('yellow');
+var info = document.getElementById("info");
+var points = document.getElementById('points');
+var prop_btn = document.getElementById('propagation');
+var reset_btn = document.getElementById('reset');
+var change_btn = document.getElementById('change');
 
-function clear_info(){
-    document.getElementById('info1').textContent = "";
-    document.getElementById('info2').textContent = "";
-    document.getElementById('info3').textContent = "";
-}
-
-function reset_btns(){
-    yellow_clicked = false;
-    red_clicked = false;
-    blue_clicked = false;
-}
-
-function show_info(){
-    document.getElementById('info1').textContent = "";
-    document.getElementById('info2').textContent = "";
-    document.getElementById('info3').textContent = "";
-    if(blue_clicked){
-        document.getElementById('info1').textContent = "Nacisnąłeś niebieski o wartości 1"
+function update() {
+    points.innerText = "Twój wynik to: " + cnt;
+    if (cnt > 30) {
+        red.classList.add('disabled');
+        red.removeEventListener('click', addred, change);
     }
-    if(red_clicked){
-        document.getElementById('info2').textContent = "Nacisnąłeś czerwony o wartości 2"
+    if (cnt > 50) {
+        yellow.classList.add('disabled');
+        yellow.removeEventListener('click', addyellow, change);
     }
-    if(yellow_clicked){
-        document.getElementById('info3').textContent = "Nacisnąłeś żółty o wartości 5"
+    if (prop) {
+        prop_btn.innerText = "Stop propagation";
+    }
+    else {
+        prop_btn.innerText = "Start propagation";
     }
 }
 
-function points_add(points){
-    document.getElementById('points').textContent = points;
-    this.points = points;
-}
-
-function click_reset_event(){
-    clicked = false;
-}
-
-function reset(){
-    points = 0;
-    points_add(points);
-    clicked = false;
-    document.getElementById('red').classList.remove('disabled');
-    document.getElementById('yellow').classList.remove('disabled');
-    clear_info();
-    reset_btns();
-    document.getElementById('info1').textContent = "";
-    document.getElementById('info2').textContent = "";
-    document.getElementById('info3').textContent = "";
-}
-
-function propagation_event(){
-    if(this.classList.contains("stop")){
-        propagation = false;
-        this.classList.remove("stop");
-        this.classList.add("start");
-        this.textContent = "Start Propagation";
-    }
-    else if(this.classList.contains("start")){
-        propagation = true;
-        this.classList.remove("start");
-        this.classList.add("stop");
-        this.textContent = "Stop Propagation";
-    }
-    return;
-}
-
-function click_yellow(){
-    if (points > 50 || document.getElementById('yellow').classList.contains('disabled')){
-        return;
-    }else{
-        points_add(points+5);
-        yellow_clicked = true;
-        if(!propagation){
-            show_info();
-            reset_btns();
-        }
+function addblue(e){
+    cnt += 1;
+    update();
+    info.innerHTML += "<p>nacisnąłeś niebieski o wartości 1</p";
+    if (!prop) {
+        e.stopPropagation();
     }
 }
 
-function click_red(){
-    if(points > 30 || document.getElementById('red').classList.contains('disabled')){
-        return;
-    }
-    red_clicked = true;
-    if(!propagation){
-        show_info();
-        reset_btns();
-    }
-    points_add(points+2);
-}
-
-function click_blue(){
-    if(document.getElementById('blue').classList.contains('disabled')){
-        return;
-    }
-    points_add(points+1);
-    blue_clicked = true;
-    show_info();
-    reset_btns();
-}
-
-function click_event(id){
-    if(!clicked){
-        switch(id){
-            case "blue":
-                click_blue();
-                break;
-            case "red":
-                click_red();
-                break;
-            case "yellow":
-                click_yellow();
-                break;
-        }
-
-        if(points > 30){
-            document.getElementById('red').classList.add('disabled');
-        }
-        if(points > 50){
-            document.getElementById('yellow').classList.add('disabled');
-        }
-    }
-    if(!propagation){
-        clicked = true;
+function addred(e) {
+    cnt += 2;
+    update();
+    info.innerHTML += "<p>nacisnąłeś czerwony o wartości 2</p>";
+    if (!prop) {
+        e.stopPropagation();
     }
 }
 
-document.getElementById('yellow').onclick = function(){
-    click_event(this.id);
+function addyellow(e) {
+    cnt += 5;
+    update();
+    info.innerHTML += "<p>nacisnąłeś żółty o wartości 5</p>";
+    if (!prop) {
+        e.stopPropagation();
+    }
 }
 
-document.getElementById('red').onclick = function(){
-    click_event(this.id);
+function changeProp() {
+    blue.removeEventListener("click",addblue,change);
+    red.removeEventListener("click",addred,change);
+    yellow.removeEventListener("click",addyellow,change);
+    change=!change;
+    start();
+    update();
 }
 
-document.getElementById('blue').onclick = function(){
-    click_event(this.id);
-    click_reset_event();
+function switchProp() {
+    prop = !prop;
+    update();
 }
 
-document.getElementById('reset').onclick = reset;
-document.getElementById('propagation').onclick = propagation_event;
+function reset() {
+    cnt = 0;
+    points.innerText = cnt;
+    start();
+    update();
+}
 
+function start() {
+    info.innerHTML = "";
+    red.classList.remove('disabled');
+    yellow.classList.remove('disabled');
+    blue.addEventListener("click",addblue,change);
+    red.addEventListener("click",addred,change);
+    yellow.addEventListener("click", addyellow, change);
+    prop_btn.addEventListener("click", switchProp);
+    reset_btn.addEventListener("click", reset);
+    change_btn.addEventListener("click", changeProp);
+}
 
-
+start();
+update();

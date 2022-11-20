@@ -71,3 +71,20 @@ body{
     font-size: 80px;
     color:rgb(21, 160, 198);
 }
+
+@keyframes leftIn{
+    0%{left:-20%;opacity: 0;}
+    100%{left:0px;opacity: 1;}
+}
+@keyframes rightOut{
+    0%{left:0px;opacity: 1;}
+    100%{left:20%;opacity: 0;}
+}
+@keyframes leftOut{
+    0%{left:0px;opacity: 1;}
+    100%{left:-20%;opacity: 0;}
+}
+@keyframes rightIn{
+    0%{left:20%;opacity: 0;}
+    100%{left:0;opacity: 1;}
+}

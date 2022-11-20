@@ -1,27 +1,26 @@
-var formData = new FormData(document.querySelector('form'));
-
 function isValid(){
     return document.getElementById('name').checkValidity() && document.getElementById('phone').checkValidity();
 }
 
-document.getElementById('add').onclick = function () {
-    var formData = new FormData(document.querySelector('form'))
+function addEntry() {
+    
     if(!isValid()){
         return;
     }
 
+    var formData = new FormData(document.querySelector('form'))
     var name = formData.get('name');
     var phone = formData.get('phone');
+
     var section = document.createElement('section');
     var section_left = document.createElement('div');
-
     section_left.classList.add('section-left');
 
     var section_left_h3 = document.createElement('h3');
     section_left_h3.textContent = name;
+
     var section_left_p = document.createElement('p');
     section_left_p.textContent = phone;
-
     section_left.appendChild(section_left_h3);
     section_left.appendChild(section_left_p);
     section.appendChild(section_left);
@@ -43,3 +42,5 @@ function deleteEntry(){
     var index = Array.from(parent.children).indexOf(this.parentNode);
     parent.removeChild(parent.children[index]);
 }
+
+document.getElementById('add').addEventListener("click", addEntry);

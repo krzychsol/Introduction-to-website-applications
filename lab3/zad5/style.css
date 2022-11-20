@@ -70,11 +70,6 @@ p{
     font-size: larger;
 }
 
-#info{
-    position: absolute;
-    top: 700px;
-}
-
 .buttons{
     margin-top: 25px;
     display: flex;
@@ -84,5 +79,9 @@ p{
 }
 
 #reset{
+    margin-left: 15px;
+}
+
+#change{
     margin-left: 15px;
 }

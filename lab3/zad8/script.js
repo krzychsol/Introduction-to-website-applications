@@ -69,15 +69,17 @@ var compare_pass = false;
 
 document.getElementById('pass').onkeyup = checkPassword;
 
-document.getElementById('rep-pass').addEventListener("keyup", function (e) {
+window.addEventListener("keyup", function (e) {
     e.preventDefault();
     compare_pass = comparePasswords();
     if (e.key === 'Enter') {
         if (!compare_pass) {
+            document.getElementById('alert').style.color = "red";
             document.getElementById('alert').textContent = "Password's are not the same!"
         }
         else {
-            document.getElementById('alert').textContent = ""
+            document.getElementById('alert').style.color = "green";
+            document.getElementById('alert').textContent = "Your password has changed succesfully!";
         }
     }
 })

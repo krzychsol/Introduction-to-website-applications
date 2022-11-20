@@ -65,7 +65,7 @@ function spawnZombie(speed,top,size,start_pos){
 function generateZombie(){
     var speed = Math.round(Math.random()*5);
     var top = Math.round(Math.random()*30);
-    var size = Math.round(((Math.random()*7+7)/10)*100)/100;
+    var size = Math.round(((Math.random()*7+7)/10)*100)/100
     var start_pos = Math.round(Math.random()*20);
     spawnZombie(speed,top,size,start_pos);
 }
@@ -167,7 +167,7 @@ function cmpFn(a,b){
 
 // ASYNC FUNCTIONS //
 async function highscoresPrompt(){
-    elHs.style.transform = "translateT(0%)";
+    elHs.style.transform = "translateY(0%)";
     var data = await fetch("https://jsonblob.com/1042571419824963584");
     var json = await data.json();
     updateHighscores(json);
@@ -181,7 +181,9 @@ async function updateHighscores(json){
     var yyyy = today.getFullYear();
     today = dd + '/'+ mm + '/' + yyyy;
 
+    console.log(data)
     data = json["highscores"];
+    console.log(data);
     data.push({"name": userName,"score":score,"date":today});
     data.sort(cmpFn);
     var entries = document.querySelectorAll("hs-list>li");
@@ -200,15 +202,26 @@ async function updateHighscores(json){
     await sendScore("https://jsonblob.com/1042571419824963584", json);
 }
 
-async function sendScore(url = '',data={}){
-    const response = await fetch(url,{
-        method: 'PUT',
-        mode: 'cors',
-        cache: 'no-cache',
+async function sendScore(url = '', data = {}) {
+    const response = await fetch(url, {
+        method: 'POST',
+        mode: "same-origin",  
+        credentials: "same-origin",
         headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then(resp => {
+        if (resp.status == 200) {
+            return resp.json();
+        } else {
+            console.log("Status: " + resp.status);
+        }
+    }).then(dataJson => {
+        dataReceived = JSON.parse(dataJson)
+    }).catch(err => {
+        if (err === "server") return
+        console.log(err);
     });
     return response.json();
 }
