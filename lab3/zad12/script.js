@@ -1,4 +1,3 @@
-// ZOMBIES FUNCTIONS //
 function animateZombie(el,speed){
     var offset = 200;
     var cur_bgpos = 0;
@@ -70,20 +69,17 @@ function generateZombie(){
     spawnZombie(speed,top,size,start_pos);
 }
 
-
-// UPDATERS //
 function updateScore(){
     elScore.textContent=score;
 }
+
 function updateHealth(){
     elHealth.textContent = "";
     for(var i = 0; i<health; i++){
         elHealth.textContent+="❤";
     }
 }
-// UPDATERS END //
 
-// HANDLERS //
 function boardShot(){
     score -= 6
     updateScore();
@@ -117,9 +113,7 @@ function startGameHandler(){
     userName = enteredUsername;
     gameStart();
 }
-// HANDLERS END //
 
-// GAME //
 function gameEnd(){
     clearInterval(gameRunning);
     Object.keys(zombieRunTime).forEach(function(key){
@@ -154,23 +148,20 @@ function startGame(){
     elUserMenu.style.transform = "translateY(0%)";
     document.getElementById("startgame").addEventListener("click",startGameHandler);
 }
-// GAME END //
 
-// UTILITY //
 function cmpFn(a,b){
     if (a["score"]<b["score"]){
         return 1;
     }
     else return -1;
 }
-// UTILITY END //
 
-// ASYNC FUNCTIONS //
 async function highscoresPrompt(){
     elHs.style.transform = "translateY(0%)";
-    var data = await fetch("https://jsonblob.com/1042571419824963584");
+    var data = await fetch("http://localhost:3000/highscores");
     var json = await data.json();
-    updateHighscores(json);
+    console.log(json);
+    //updateHighscores(json);
     document.getElementById("startgame2").addEventListener("click",startgame2Handler);
 }
 
@@ -181,9 +172,7 @@ async function updateHighscores(json){
     var yyyy = today.getFullYear();
     today = dd + '/'+ mm + '/' + yyyy;
 
-    console.log(data)
     data = json["highscores"];
-    console.log(data);
     data.push({"name": userName,"score":score,"date":today});
     data.sort(cmpFn);
     var entries = document.querySelectorAll("hs-list>li");
@@ -199,34 +188,22 @@ async function updateHighscores(json){
         entry.textContent = data[i]["name"]+", pkt: "+data[i]["score"]+", data: "+data[i]["date"];
         hsList.appendChild(entry);
     }
-    await sendScore("https://jsonblob.com/1042571419824963584", json);
+    await sendScore("http://localhost:3000/highscores", json);
 }
 
 async function sendScore(url = '', data = {}) {
     const response = await fetch(url, {
-        method: 'POST',
-        mode: "same-origin",  
-        credentials: "same-origin",
+        method: 'PUT', 
+        mode: 'cors', 
+        cache: 'no-cache', 
         headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    }).then(resp => {
-        if (resp.status == 200) {
-            return resp.json();
-        } else {
-            console.log("Status: " + resp.status);
-        }
-    }).then(dataJson => {
-        dataReceived = JSON.parse(dataJson)
-    }).catch(err => {
-        if (err === "server") return
-        console.log(err);
-    });
-    return response.json();
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+      return response.json();
 }
 
-// GAME VARIABLES //
 var idx = 0;
 var board = document.querySelector("#board");
 var zombieRunTime = {};
@@ -240,7 +217,5 @@ var score = 0;
 var health = 3;
 var gameRunning;
 var mouseCursor = document.querySelector("#customcursor");
-// GAME VARIABLES END //
 
-// START GAME //
 startGame();

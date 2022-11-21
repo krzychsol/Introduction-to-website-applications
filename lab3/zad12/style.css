@@ -109,9 +109,10 @@ p#health{
 .inner{
     position: absolute;
     width: 70vh;
-    background-color: rgba(105, 67, 150, 0.9);
+    background-color: rgba(66, 134, 121, 0.9);
     border-radius: 10px;
-    border: 2px solid black;
+    border: 2px solid rgb(255, 255, 255);
+    color:rgba(255, 255, 255, 0.8);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -128,7 +129,7 @@ h2{
     font-size: 3rem;
     text-align: center;
     margin: 1rem;
-    border-bottom: 2px solid black;
+    border-bottom: 5px solid rgb(255, 255, 255);
 }
 
 input#username {

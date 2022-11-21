@@ -1,4 +1,9 @@
-{"scores":[
-    {"score" : 2137, "nick" : "krzych"},
-    {"score" : 10, "nick" : "krzych2"}
-]}
+{
+    "highscores": [
+      {
+        "name": "krzycholl",
+        "score": 12,
+        "date": "6/2/2022"
+      }
+    ]
+  }
