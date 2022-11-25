@@ -1,0 +1,88 @@
+{
+    "cars" : [
+        {
+            "manufacturer": "ferrari",
+            "model": "458 Italia",
+            "colors": [
+                "red", "blue", "green", "lightgreen", "sandybrown"
+            ]
+        },
+        {
+            "manufacturer": "ferrari",
+            "model": "488 GTB",
+            "colors": [
+                "red", "blue", "green", "olive", "royalblue", "lightgreen", "sandybrown"
+            ]
+        },
+        {
+            "manufacturer": "ferrari",
+            "model": "F8 Tributo",
+            "colors": [
+                "red", "blue", "royalblue", "lightgreen", "sandybrown"
+            ]
+        },
+        {
+            "manufacturer": "ferrari",
+            "model": "California T",
+            "colors": [
+                "red", "blue", "green", "olive", "sandybrown"
+            ]
+        },
+        {
+            "manufacturer": "Rimac",
+            "model": "Nevera",
+            "colors": [
+                "royalblue", "sandybrown"
+            ]
+        },
+        {
+            "manufacturer": "Koenigsegg",
+            "model": "Regera",
+            "colors": [
+                "red", "blue", "sandybrown"
+            ]
+        },
+        {
+            "manufacturer": "Koenigsegg",
+            "model": "Gemera",
+            "colors": [
+                "blue", "sandybrown"
+            ]
+        },
+        {
+            "manufacturer": "Koenigsegg",
+            "model": "Agera S",
+            "colors": [
+                "red", "blue"
+            ]
+        },
+        {
+            "manufacturer": "Tesla",
+            "model": "Model Y",
+            "colors": [
+                "red", "blue", "green", "olive", "royalblue", "lightgreen", "sandybrown"
+            ]
+        },
+        {
+            "manufacturer": "Tesla",
+            "model": "Model S",
+            "colors": [
+                "red", "blue", "green", "olive", "lightgreen", "sandybrown"
+            ]
+        },
+        {
+            "manufacturer": "Tesla",
+            "model": "Model X",
+            "colors": [
+                "red", "olive", "royalblue", "lightgreen", "sandybrown"
+            ]
+        },
+        {
+            "manufacturer": "Tesla",
+            "model": "Model 3",
+            "colors": [
+                "red", "blue", "green", "olive", "royalblue", "sandybrown"
+            ]
+        }
+    ]
+}

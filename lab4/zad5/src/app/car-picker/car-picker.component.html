@@ -1,0 +1,52 @@
+<div class="manufacturer">
+    <label>Pick Manufacturer</label>
+    <select
+      class="form-control caret"
+      id="manufacturer"
+      (change)="onManufacturerChange($event)"
+    >
+      <option value="">-pick manufacturer-</option>
+      <option *ngFor="let manufacturer of manufacturers" [value]="manufacturer">
+        {{ manufacturer }}
+      </option>
+    </select>
+  </div>
+  
+  <div class="model" *ngIf="manufacturer !== ''">
+    <hr />
+    <label>Pick Model</label>
+    <select
+      class="form-control caret"
+      id="model"
+      (change)="onModelChange($event)"
+    >
+      <option value="">-pick model-</option>
+      <option *ngFor="let model of models.get(manufacturer)" [value]="model">
+        {{ model }}
+      </option>
+    </select>
+  </div>
+  
+  <div class="color" *ngIf="model !== '' && manufacturer !== ''">
+    <hr />
+    <label>Pick Color</label>
+    <div class="color-picker">
+      <div
+        (click)="onColorChange(color)"
+        class="square"
+        *ngFor="let color of colors.get(model)"
+        [ngStyle]="{ backgroundColor: color }"
+      ></div>
+    </div>
+  </div>
+  
+  <hr />
+  
+  <p *ngIf="color !== ''">
+    Your choice:
+    <b>
+      <span [style.color]="color">{{ color }}</span
+      >{{ " " + manufacturer + " " + model + "  " }}</b
+    >
+    Great Choice!
+  </p>
