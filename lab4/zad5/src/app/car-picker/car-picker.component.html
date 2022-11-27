@@ -1,52 +1,34 @@
-<div class="manufacturer">
-    <label>Pick Manufacturer</label>
-    <select
-      class="form-control caret"
-      id="manufacturer"
-      (change)="onManufacturerChange($event)"
-    >
-      <option value="">-pick manufacturer-</option>
-      <option *ngFor="let manufacturer of manufacturers" [value]="manufacturer">
-        {{ manufacturer }}
-      </option>
-    </select>
-  </div>
-  
-  <div class="model" *ngIf="manufacturer !== ''">
-    <hr />
-    <label>Pick Model</label>
-    <select
-      class="form-control caret"
-      id="model"
-      (change)="onModelChange($event)"
-    >
-      <option value="">-pick model-</option>
-      <option *ngFor="let model of models.get(manufacturer)" [value]="model">
-        {{ model }}
-      </option>
-    </select>
-  </div>
-  
-  <div class="color" *ngIf="model !== '' && manufacturer !== ''">
-    <hr />
-    <label>Pick Color</label>
-    <div class="color-picker">
-      <div
-        (click)="onColorChange(color)"
-        class="square"
-        *ngFor="let color of colors.get(model)"
-        [ngStyle]="{ backgroundColor: color }"
-      ></div>
+<div class="container">
+  <h2 class="title">Pick your car!</h2>
+  <form action="#">
+    <div class="form-group">
+        <ng-container *ngIf="showMarks">
+          <p class="description">Select car: </p>
+          <select class="form-select" [(ngModel)]="selectedMark" name="car" (change)="generateModels()">
+            <option *ngFor="let mark of marks" [value]="mark">
+              {{mark}}
+            </option>
+          </select>
+        </ng-container>
+        
     </div>
-  </div>
-  
-  <hr />
-  
-  <p *ngIf="color !== ''">
-    Your choice:
-    <b>
-      <span [style.color]="color">{{ color }}</span
-      >{{ " " + manufacturer + " " + model + "  " }}</b
-    >
-    Great Choice!
-  </p>
+    <div class="form-group">
+      <ng-container *ngIf="showModels">
+        <p class="description">Select models: </p>
+        <select class="form-select" [(ngModel)]="selectedModel" name="car" (change)="generateColors()">
+          <option *ngFor="let model of models" [value]="model">
+            {{model}}
+          </option>
+      </select>
+      </ng-container>
+    </div>
+    <div class="colors-container">
+      <ng-container *ngIf="showColors">
+        <p class="description">Select color: </p>
+        <div class="color-block" [ngStyle]="{'background-color': color}" [(ngModel)]="selectedColor" name="car" (click)="chosenColor(color)" *ngFor="let color of colors"></div>
+      </ng-container>
+    </div>
+    <p class="result" *ngIf="showCar">Selected mark: {{selectedMark}}<br> model: {{selectedModel}}<br> color: {{selectedColor}}</p>
+  </form>
+</div>
+

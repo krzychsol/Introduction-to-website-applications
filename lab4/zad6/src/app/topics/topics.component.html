@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="title-box">
+        <p class="title">
+            Wybierz temat
+        </p>
+    </div>
+    <div class="topics-container">
+        <div class="topic">
+            <p class="topic-title">{{basicsTitle}</p>
+            <p class="topic-description">
+                {{basicsDesc}}
+            </p>
+            <button class="btn" (click)="btnBasicsClicked()">Learn more</button>
+        </div>
+        <div class="topic">
+            <p class="topic-title">Components</p>
+            <p class="topic-description">
+                Components are a core concept for building Angular UIs and apps
+            </p>
+            <button class="btn" (click)="btnComponentsClicked()">Learn more</button>
+        </div>
+        <div class="topic">
+            <p class="topic-title">Events</p>
+            <p class="topic-description">
+                Events are important in Angular
+            </p>
+            <button class="btn" (click)="btnEventsClicked()">Learn more</button>
+        </div>
+    </div>
+</div>

@@ -1,17 +1,53 @@
-.square {
-    width: 40px;
-    height: 30px;
-    background-color: red;
-  }
-  .color-picker {
-    display: flex;
-    flex-direction: row;
-  }
-  .square {
-    margin: 10px;
-    transition: 0.5s ease;
-  }
-  .square:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+  font-family: 'Roboto Slab',serif;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title{
+  width: 60vw;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: bold;
+  border-bottom: 5px solid rgb(215, 76, 76);
+}
+
+.description{
+  font-size: 1.3em;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+select{
+  width: 50vw;
+}
+
+.colors-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 30px;
+  
+}
+
+.color-block{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  border: 3px solid rgb(0, 0, 0,0.7);
+}
+
+.result{
+  margin-top: 20px;
+  font-size: 1.3em;
+}

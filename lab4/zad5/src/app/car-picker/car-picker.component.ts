@@ -1,6 +1,12 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ignoreElements } from 'rxjs';
+import { NgModel } from '@angular/forms';
+import { cars } from './cars';
+
+interface Car {
+  mark: string,
+  model: string,
+  colors: string []
+}
 
 @Component({
   selector: 'app-car-picker',
@@ -8,54 +14,57 @@ import { ignoreElements } from 'rxjs';
   styleUrls: ['./car-picker.component.css']
 })
 export class CarPickerComponent implements OnInit {
-  products: any = [];
-  url = "assets/cars.json";
-  rawCars :any;
-  manufacturers :Set<string> = new Set();
-  models: Map<string, Array<string>> = new Map();
-  colors: Map<string, Set<string>> = new Map();
-  manufacturer = '';
-  model = '';
-  color = '';
+  cars: Car[];
+  selectedMark: string = "";
+  selectedModel: string = "";
+  selectedColor: string = "";
+  marks: string[] = [];
+  models: string[] = [];
+  colors: string[] = [];
+  showCar = false;
+  showModels = false;
+  showColors = false;
+  showMarks = false;
 
-
-  constructor(private http :HttpClient) { 
+  constructor() { 
+    this.cars = cars;
+    this.showMarks = true;
+    this.generateMarks();
   }
 
   ngOnInit(): void {
-    this.http.get(this.url).subscribe(result => {
-      this.rawCars = result;
-      console.log(result);
-      this.categorizeCars();
-    });
   }
 
-  categorizeCars () {
-    for (let car of this.rawCars) {
-      this.manufacturers.add(car.manufacturer);
-
-      if (!this.models.has(car.manufacturer)) {
-        this.models.set(car.manufacturer, []);
+  generateMarks() {
+    for (let car of cars) {
+      if (this.marks.includes(car.mark) == false) {
+        this.marks.push(car.mark);
       }
-      this.models.get(car.manufacturer)?.push(car.model);
-
-      if (!this.colors.has(car.model)) {this.colors.set(car.model, new Set())}
-      for (let color of car.colors) {
-        this.colors.get(car.model)?.add(color);
+    }
+  }
+  
+  generateModels() {
+    this.showModels = true;
+    this.models = [];
+    this.selectedModel = "";
+    for (let car of cars) {
+      if (car.mark == this.selectedMark) {
+        this.models.push(car.model);
       }
     }
   }
 
-  onManufacturerChange(event: Event) {
-    this.manufacturer = (<HTMLInputElement>event.target).value;
+  generateColors() {
+    this.showColors = true;
+    for (let car of cars) {
+      if (car.mark == this.selectedMark && car.model == this.selectedModel) {
+        this.colors = car.colors;
+      }
+    }
   }
 
-  onModelChange(event: Event) {
-    this.model = (<HTMLInputElement>event.target).value;
+  chosenColor(color:string) {
+    this.selectedColor = color;
+    this.showCar = true;
   }
-
-  onColorChange(color: string) {
-    this.color = color;
-  }
-
 }

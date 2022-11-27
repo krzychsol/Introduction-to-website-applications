@@ -1,0 +1,50 @@
+<!-- ======= Header ======= -->
+<header id="header" class="header fixed-top d-flex align-items-center">
+  <div class="d-flex align-items-center justify-content-between">
+    <a href="#" class="logo d-flex align-items-center">
+      <img src="assets/img/logo.png" alt="">
+      <span class="d-none d-lg-block">Sklep z wycieczkami</span>
+    </a>
+    <i class="bi bi-list toggle-sidebar-btn"></i>
+  </div><!-- End Logo -->
+</header><!-- End Header -->
+
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+  <ul class="sidebar-nav" id="sidebar-nav">
+    <li class="nav-item">
+      <a class="nav-link " href="index.html">
+        <i class="bi bi-grid"></i>
+        <span>Filtry</span>
+      </a>
+    </li><!-- End Dashboard Nav -->
+    <app-fliter [tours]="toursData" (setMinMax2)="setMinMax2($event)"></app-fliter>
+  </ul>
+</aside><!-- End Sidebar-->
+
+<div class="container">
+  <nav class="navbar navbar-dark bg-dark" id="site-navbar">
+    <a href="#" class="navbar-brand">Sklep z wycieczkami</a>
+  </nav>
+  <!--<app-fliter [tours]="toursData"
+        (setMinMax2)="setMinMax2($event)"
+  ></app-fliter>-->
+  <div id="shop">
+    <app-booked-tours [bookedTours]="bookedTours"></app-booked-tours>
+    <app-cart [cart]="cart" [cartSum]="cartSum"></app-cart>
+  </div>
+  <div id="tours">
+    <ng-container *ngFor="let t of toursData" >
+    <app-tour 
+      *ngIf="t.display"
+      [tourData]="t"
+      [maxPriceId] = "maxPriceId"
+      [minPriceId] = "minPriceId"
+      (addTourToBasket)="addToBasket($event)"
+      (removeTourFromBasket)="removeFromBasket($event)"
+      (delTour)="deleteTour($event)"
+    ></app-tour>
+  </ng-container>
+  </div>
+  <app-adding (addTour)="addTour($event)"></app-adding>
+</div>
