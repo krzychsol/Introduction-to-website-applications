@@ -1,35 +1,34 @@
-
 <div id="content">
-<div id="top-section" [ngClass]="{
+    <div id="top-section" [ngClass]="{
     'top-section1':tourData.id == maxPriceId,
     'top-section2':tourData.id == minPriceId,
     'top-section3':tourData.id != maxPriceId && tourData.id != minPriceId}"> 
-    <p>Name: {{tourData.name | uppercase}}</p>
+    <p>Nazwa wycieczki: {{tourData.name | uppercase}}</p>
     <app-rating (setRate)="setRate($event)" [rateVal]="tourData.rate"></app-rating>
 </div>
 <div id="info-sections">
     <img src="{{tourData.imageURL}}" alt="photo">
     <div id="info">
-        <p>Destination: {{tourData.destination}}</p>
+        <p>Cel podróży: {{tourData.destination}}</p>
         <p>Data rozpoczęcia: {{tourData.dateBegin}}</p>
-        <p>Data zakoczenia: {{tourData.dateEnd}}</p>
+        <p>Data zakończenia: {{tourData.dateEnd}}</p>
         <p>Opis</p>
         <p>{{tourData.description}}</p>
     </div>
 </div>   
 <div id="places-sections">
-    <p>Places: {{placesReserved}}/{{tourData.places}}</p>
+    <p>Miejsca: {{placesReserved}}/{{tourData.places}}</p>
     <div *ngIf="tourData.places - placesReserved == 1" id="lastPlace">
-        Last free place!
+        Ostatnie wolne miejsce!
     </div>
     <div *ngIf="tourData.places - placesReserved == 0" id="noPlace">
-        No places availalble!
+        Brak dostępnych miejsc!
     </div>
 </div>
 <div id="bottom-section">
-    <p>Price: {{tourData.money | currency}}</p>
+    <p>Koszt: {{tourData.money | currency}}</p>
     <div id=buttons>
-        <button id="btnDel" (click)="deleteTour(tourData.id)" [style.visibility]="displayDeleteButton ? 'visible' : 'hidden'">D</button>
+        <button id="btnDel" (click)="deleteTour(tourData.id)" [style.visibility]="displayDeleteButton ? 'visible' : 'hidden'"><i class="bi bi-trash-fill"></i></button>
         <button id="btnAdd"(click)="incrementPlaces()" [style.visibility]="displayPlusButton ? 'visible' : 'hidden'">+</button>
         <button id="btnOdd" (click)="decrementPlaces()" [style.visibility]="displayMinusButton ? 'visible' : 'hidden'">-</button>
         

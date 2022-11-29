@@ -1,13 +1,14 @@
 label {
-    padding: 10px;;
+    padding: 5px;
+    padding-left: 40px;
     letter-spacing: 0.5px;
     font-size: 16px;
-    
 }
+
 input, textarea {
-    width: 500px;
+    width: 80%;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 8px 40px;
     display: inline-block;
     border: 1px solid rgb(71, 123, 219);
     border-radius: 4px;
@@ -24,6 +25,7 @@ input, textarea {
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
+    margin-left: 40%;
     border: none;
     border-radius: 4px;
     cursor: pointer;

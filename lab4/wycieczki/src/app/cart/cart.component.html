@@ -1,9 +1,23 @@
-<p class="sec">Cart</p>
-
-<ul>
-    <li *ngFor="let t of cart" > <div>{{t.name}}</div> <div>{{t.elements}}</div></li>
-</ul>
-
-<div class="sec">
-    {{cartSum | currency}}
+<div class="card info-card revenue-card">
+    <div class="filter">
+        <a class="icon" id="dropdown-list" href="#" data-bs-toggle="dropdown"><span>Lista rezerwacji </span><i class="ri ri-arrow-down-s-line"></i></a>
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+            <li class="dropdown-header text-start">
+                <h6>Lista rezerwacji</h6>
+              </li>
+            <li  *ngFor="let t of cart" > <a class="dropdown-item" href="#">{{t.name}}, Ilość: {{t.elements}}</a></li>
+        </ul>
+      </div>
+    <div class="card-body">
+      <h5 class="card-title">Łączna kwota</h5>
+      <div class="d-flex align-items-center">
+        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+          <i class="bi bi-currency-dollar"></i>
+        </div>
+        <div class="ps-3">
+          <h6>{{cartSum | currency}}</h6>
+        </div>
+      </div>
+    </div>
 </div>
+

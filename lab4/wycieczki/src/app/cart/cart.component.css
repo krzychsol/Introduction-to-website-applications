@@ -1,25 +1,21 @@
-:host{
-    margin: 20px;
-    background-color: #e9e3e3;
-    width: 600px;
-}
-
-.sec {
-    margin: 0;
-    padding: 10px 30px;
-    background-color: #69cbe4;
-    font-size: 20px;
-}
-
-ul {
-    margin: 10px;
+/*ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color:rgba(1, 157, 30, 0.96);
+    border-radius: 15px;
 }
 
 li {
     list-style: none;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.084);
     display: flex;
     justify-content: space-between;
-    margin: 10px 40px;
-    padding: 5px 20px ;
+    margin: 10px 10px;
+    padding: 5px 5px ;
+    border-radius: 10px;
+}*/
+#dropdown-list{
+    text-decoration: none;
+    font-size: 1.3em;
 }

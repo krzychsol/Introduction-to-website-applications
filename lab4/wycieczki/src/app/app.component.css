@@ -1,33 +1,10 @@
-.container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.filter-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#site-navbar{
-    height: 60px;
-    width: 100vw;
-    padding-left: 30px;
-}
-
 #tours {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
 }
 
-#shop {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-}
+
