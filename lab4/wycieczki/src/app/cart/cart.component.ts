@@ -9,7 +9,6 @@ export interface CartElement {
 }
 
 
-
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',

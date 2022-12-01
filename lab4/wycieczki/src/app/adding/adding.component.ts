@@ -51,7 +51,7 @@ export class AddingComponent implements OnInit {
   price: FormControl = new FormControl("",  [Validators.required, Validators.min(0)]);
   places: FormControl = new FormControl("",  [Validators.required, Validators.min(0)]);
   description: FormControl = new FormControl("",  Validators.required);
-  imageUrl: FormControl = new FormControl("",  Validators.required);
+  imageUrl: FormControl = new FormControl("");
 
 
   createForm() {

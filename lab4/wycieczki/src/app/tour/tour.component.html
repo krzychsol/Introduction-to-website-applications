@@ -1,8 +1,8 @@
-<div id="content">
-    <div id="top-section" [ngClass]="{
-    'top-section1':tourData.id == maxPriceId,
-    'top-section2':tourData.id == minPriceId,
-    'top-section3':tourData.id != maxPriceId && tourData.id != minPriceId}"> 
+<div id="content" [ngClass]="{
+    'content1':tourData.id == maxPriceId,
+    'content2':tourData.id == minPriceId,
+    'content3':tourData.id != maxPriceId && tourData.id != minPriceId}">
+    <div id="top-section"> 
     <p>Nazwa wycieczki: {{tourData.name | uppercase}}</p>
     <app-rating (setRate)="setRate($event)" [rateVal]="tourData.rate"></app-rating>
 </div>
