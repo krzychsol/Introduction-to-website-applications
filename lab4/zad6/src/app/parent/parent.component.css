@@ -1,0 +1,11 @@
+.description{
+    text-align: center;
+    -webkit-box-shadow: 0px 0px 15px -6px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 15px -6px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 15px -6px rgba(66, 68, 90, 1);
+    border-radius: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 30px 20px 30px 20px;
+    margin-bottom: 20px;
+}

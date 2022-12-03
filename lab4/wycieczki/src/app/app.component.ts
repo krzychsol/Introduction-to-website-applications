@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { CartComponent, CartElement } from './cart/cart.component';
 import { Tour } from './tour/tour.component';
 
@@ -16,7 +16,8 @@ export class AppComponent implements AfterViewInit {
   bookedTours: number = 0;
   maxPriceId: number;
   minPriceId: number;
-  
+  showSidebar: boolean = true;
+
   cart: CartElement[] = [];
   cartSum: number = 0;
 
@@ -107,5 +108,9 @@ export class AppComponent implements AfterViewInit {
           this.maxPriceId = t.id;
         }
     }
+  }
+
+  toggleSidebar() {
+    this.showSidebar = !this.showSidebar;
   }
 }

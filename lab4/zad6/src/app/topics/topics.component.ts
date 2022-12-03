@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NgModel } from '@angular/forms';
 
+
 @Component({
     selector: 'app-angular-course',
     templateUrl: './topics.component.html',
@@ -8,30 +9,19 @@ import { NgModel } from '@angular/forms';
 })
 export class TopicsComponent implements OnInit {
 
-    basicsTitle: string = "The Basics";
-    basicsDesc: string = "Core Angular basics you have to know";
-    componentsTitle: string = "Components";
-    componentsDesc: string = "Components are a core concept for building Angular UIs and apps";
-    eventsTitle: string = "Events";
-    eventsDesc: string = "Events are important in Angular";
+    selectedCourse = "";
+    selectedTitle = "";
 
     constructor() { }
     
     ngOnInit(): void {
     }
+    
+    @Output() onClick = new EventEmitter<{selectedCourse: string; selectedTitle: string;}>(); 
 
-    @Output() 
-
-    btnBasicsClicked() {
-        
+    btnClicked(title: string,course: string) {
+        this.selectedCourse = course;
+        this.selectedTitle = title;
+        this.onClick.emit({selectedCourse: this.selectedCourse,selectedTitle: this.selectedTitle});
     }
-
-    btnComponentsClicked() {
-        
-    }
-
-    btnEventsClicked() {
-        
-    }
-
 }

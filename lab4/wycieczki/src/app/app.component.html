@@ -1,16 +1,17 @@
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center">
   <div class="d-flex align-items-center justify-content-between">
-    <a href="#" class="logo d-flex align-items-center">
+    <span class="logo d-flex align-items-center">
       <img src="assets/img/logo.png" alt="">
       <span class="d-none d-lg-block">Sklep z wycieczkami</span>
-    </a>
-    <i class="bi bi-list toggle-sidebar-btn"></i>
+    </span>
+    <i class="bi bi-list toggle-sidebar-btn" id="toggle-sidebar-btn"></i>
+    
   </div><!-- End Logo -->
 </header><!-- End Header -->
 
 <!-- ======= Sidebar ======= -->
-<aside id="sidebar" class="sidebar">
+<aside id="sidebar" class="sidebar" *ngIf="showSidebar">
   <ul class="sidebar-nav" id="sidebar-nav">
     <li class="nav-item">
       <a class="nav-link " href="index.html">
@@ -25,12 +26,6 @@
 <main class="main" id="main">
   <div class="pagetitle">
     <h1>Panel główny</h1>
-    <nav>
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Strona główna</a></li>
-        <li class="breadcrumb-item active">Panel</li>
-      </ol>
-    </nav>
   </div><!-- End Page Title -->
   <section class="section dashboard">
     <div class="row">
