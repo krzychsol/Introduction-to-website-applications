@@ -1,12 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { NgModel } from '@angular/forms';
-import { cars } from './cars';
 
-interface Car {
-  mark: string,
-  model: string,
-  colors: string []
-}
 
 @Component({
   selector: 'app-car-picker',
@@ -14,57 +8,43 @@ interface Car {
   styleUrls: ['./car-picker.component.css']
 })
 export class CarPickerComponent implements OnInit {
-  cars: Car[];
-  selectedMark: string = "";
-  selectedModel: string = "";
-  selectedColor: string = "";
-  marks: string[] = [];
-  models: string[] = [];
-  colors: string[] = [];
+  
+  selectedMark!: string;
+  selectedModel!: string;
+  selectedColor!: string;
+  carData: any
+  colorChoose!: string[];
+
   showCar = false;
   showModels = false;
   showColors = false;
   showMarks = false;
 
   constructor() { 
-    this.cars = cars;
-    this.showMarks = true;
-    this.generateMarks();
   }
 
   ngOnInit(): void {
+    fetch('../../assets/cars.json').then(res => res.json())
+      .then(json => {
+        this.carData = json
+        this.showMarks = true
+      });
   }
 
-  generateMarks() {
-    for (let car of cars) {
-      if (this.marks.includes(car.mark) == false) {
-        this.marks.push(car.mark);
-      }
-    }
-  }
-  
-  generateModels() {
-    this.showModels = true;
-    this.models = [];
-    this.selectedModel = "";
-    for (let car of cars) {
-      if (car.mark == this.selectedMark) {
-        this.models.push(car.model);
-      }
-    }
+  chosenMark() {
+    this.showModels = true
+    this.showCar = false
+    this.showColors = false
   }
 
-  generateColors() {
-    this.showColors = true;
-    for (let car of cars) {
-      if (car.mark == this.selectedMark && car.model == this.selectedModel) {
-        this.colors = car.colors;
-      }
-    }
+  chosenModel() {
+    this.showColors = true
+    this.colorChoose = this.carData[this.selectedMark][this.selectedModel]
+    this.showCar = false
   }
 
-  chosenColor(color:string) {
+  chosenColor(color: string) {
     this.selectedColor = color;
-    this.showCar = true;
+    this.showCar = true 
   }
 }

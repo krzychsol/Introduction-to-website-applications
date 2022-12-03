@@ -1,0 +1,46 @@
+{
+    "Fiat":
+        {
+            "126p":["red", "green"],
+            "500":["red", "green"],
+            "Ducato":["red", "green"],
+            "Panda":["red", "green", "blue"],
+            "Sedici":["red","orange"],
+            "Seicento":["red","blue","grey"]
+        }
+    ,
+    "Audi":
+    {
+        "A1":["red", "green", "blue", "black", "grey"],
+        "A3":["red", "green", "blue", "black", "grey"],
+        "A5":["black"],
+        "A7":["grey"],
+        "A8":["red"],
+        "S3":["black","purple"],
+        "Q3":["blue","grey"],
+        "80":["red","green","yellow","orange"]
+    },
+    "BMW":
+    {
+        "M3":["red", "green", "blue", "black", "grey"],
+        "M3 Competition":["red", "green", "blue", "black", "grey"],
+        "E36":["black"],
+        "E90":["red","green","blue","purple","orange"],
+        "F30":["orange","pink","white","red"],
+        "G20 LCI": ["red","orange"],
+        "M8": ["purple","yellow","orange","red","black"],
+        "X6":["grey"],
+        "i3":["grey"],
+        "i8":["grey"],
+        "Z1":["grey"]
+    },
+    "Mercedes-Benz":
+    {
+        "AMG GT":["black", "grey"],
+        "CLA":["red"],
+        "CLS":["black"],
+        "C190":["red","green","orange","purple"],
+        "W212 Facelift":["red","green","black","grey"],
+        "W463":["black","white","grey","green"]
+    }
+}

@@ -4,9 +4,9 @@
     <div class="form-group">
         <ng-container *ngIf="showMarks">
           <p class="description">Select car: </p>
-          <select class="form-select" [(ngModel)]="selectedMark" name="car" (change)="generateModels()">
-            <option *ngFor="let mark of marks" [value]="mark">
-              {{mark}}
+          <select class="form-select" [(ngModel)]="selectedMark" name="car" (ngModelChange)="chosenMark()">
+            <option *ngFor="let mark of carData | keyvalue">
+              {{mark.key}}
             </option>
           </select>
         </ng-container>
@@ -14,10 +14,10 @@
     </div>
     <div class="form-group">
       <ng-container *ngIf="showModels">
-        <p class="description">Select models: </p>
-        <select class="form-select" [(ngModel)]="selectedModel" name="car" (change)="generateColors()">
-          <option *ngFor="let model of models" [value]="model">
-            {{model}}
+        <p class="description">Select model: </p>
+        <select class="form-select" [(ngModel)]="selectedModel" name="car" (ngModelChange)="chosenModel()">
+          <option *ngFor="let model of carData[selectedMark] | keyvalue">
+            {{model.key}}
           </option>
       </select>
       </ng-container>
@@ -25,10 +25,16 @@
     <div class="colors-container">
       <ng-container *ngIf="showColors">
         <p class="description">Select color: </p>
-        <div class="color-block" [ngStyle]="{'background-color': color}" [(ngModel)]="selectedColor" name="car" (click)="chosenColor(color)" *ngFor="let color of colors"></div>
+        <div class="color-block"
+          [(ngModel)]="selectedColor" 
+          name="car" 
+          (click)="chosenColor(color)" 
+          *ngFor="let color of colorChoose"
+          [ngStyle]="{'background-color': color}" >
+        </div>
       </ng-container>
     </div>
-    <p class="result" *ngIf="showCar">Selected mark: {{selectedMark}}<br> model: {{selectedModel}}<br> color: {{selectedColor}}</p>
+    <p class="result" *ngIf="showCar">Brand: {{selectedMark}}<br> Model: {{selectedModel}}<br> Color: {{selectedColor}}</p>
   </form>
 </div>
 
