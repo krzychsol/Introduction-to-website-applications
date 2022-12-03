@@ -87,7 +87,7 @@ export const tours: Tour[] = [
         dateEnd: "2020-12-31",
         imageURL: "assets/img/tour_pic.jpg",
         places: 7,
-        money: 12100.0,
+        money: 1100.0,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam egestas.",
         display: true,
         rate: 5

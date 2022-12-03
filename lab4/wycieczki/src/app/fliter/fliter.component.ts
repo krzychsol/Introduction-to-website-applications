@@ -20,8 +20,8 @@ export class FliterComponent implements OnInit {
   ratings: number[] = []
   choosedDestinations: string[] = []
   choosedRatings: number[] = []
-  minMoney:number = 10
-  maxMoney:number = 100
+  minMoney:number = Infinity
+  maxMoney:number = -Infinity
   choosedMinMoney: number = 0;
   choosedMaxMoney: number = 0;
   value1 = 40;
@@ -35,7 +35,8 @@ export class FliterComponent implements OnInit {
   }
 
   countRanges() {
-    for(let t of this.tours) if(t.display){
+    for (let t of this.tours) if (t.display) {
+      console.log(t);
       if(!this.destinations.includes(t.destination)) 
         this.destinations.push(t.destination);
       if(!this.ratings.includes(t.rate)) 
