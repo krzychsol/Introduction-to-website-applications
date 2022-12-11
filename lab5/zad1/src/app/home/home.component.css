@@ -1,0 +1,23 @@
+.home-container{
+    background-color: #5F8D4E;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    min-width: 450px;
+    max-width: 600px;
+    height: 300px;
+    border-radius: 30px;
+    margin: 100px auto;
+}
+
+.title{
+    font-size: 2em;
+    font-weight: 400;
+}
+
+.content{
+    font-size: 1.3em;
+    font-weight: 400;
+}

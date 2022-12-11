@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { CartComponent, CartElement } from './cart/cart.component';
 import { Tour } from './tour/tour.component';
-
 import {tours} from './tours'
 
 @Component({

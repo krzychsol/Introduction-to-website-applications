@@ -1,0 +1,24 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #285430;
+}
+
+.item{
+    font-size: 2em;
+    color: #A4BE7B;
+    transition:300ms ease all;
+}
+
+a{
+    text-decoration: inherit;
+    color:inherit;
+}
+
+.item:hover{
+    color:white;
+    cursor:pointer;
+    transition:300ms ease all;
+}
