@@ -1,1 +1,16 @@
-<p>photos works!</p>
+<h1>Photos gallery</h1>
+<h1 *ngIf="photos.length==0">Loading...</h1>
+<div class="container">
+    <ng-container *ngIf="photos!=undefined">
+        <ng-container *ngFor="let photo of photos">
+            <ng-container *ngIf="photo.id <= 50">
+                <div class="photo">
+                    <h3>AlbumID: {{photo.albumId}}, ImageID: {{photo.id}}</h3>
+                    <p>Click on the image</p>
+                    <a routerLink="/photos/{{photo.id}}"><img src={{photo.thumbnailUrl}} alt=""></a>
+                </div>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+</div>
+

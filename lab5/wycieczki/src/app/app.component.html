@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar" *ngIf="showSidebar">
+  <ul class="sidebar-nav" id="sidebar-nav">
+    <li class="nav-item">
+      <a class="nav-link " href="index.html">
+        <i class="bi bi-filter"></i>
+        <span>Filtry</span>
+      </a>
+    </li><!-- End Dashboard Nav -->
+    <app-fliter [tours]="toursData" (setMinMax2)="setMinMax2($event)"></app-fliter>
+  </ul>
+</aside><!-- End Sidebar-->
+
+<main class="main" id="main">
+  <div class="pagetitle">
+    <h1>Panel główny</h1>
+  </div><!-- End Page Title -->
+  <section class="section dashboard">
+    <div class="row">
+
+      <!-- Left side columns -->
+      <div class="col-lg-8">
+        <div class="row">
+
+          <!-- Sales Card -->
+          <div class="col-xxl-6 col-md-6" >
+            <app-booked-tours [bookedTours]="bookedTours"></app-booked-tours>
+          </div><!-- End Sales Card -->
+    
+          <!-- Revenue Card -->
+          <div class="col-xxl-6 col-md-6">
+            <app-cart [cart]="cart" [cartSum]="cartSum"></app-cart>
+          </div><!-- End Revenue Card -->
+        </div>
+
+        <!-- Reports -->
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Aktualna lista wycieczek</h5>
+              <div id="tours">
+                <ng-container *ngFor="let t of toursData" >
+                  <app-tour 
+                    *ngIf="t.display"
+                    [tourData]="t"
+                    [maxPriceId] = "maxPriceId"
+                    [minPriceId] = "minPriceId"
+                    (addTourToBasket)="addToBasket($event)"
+                    (removeTourFromBasket)="removeFromBasket($event)"
+                    (delTour)="deleteTour($event)"
+                  ></app-tour>
+                </ng-container>
+              </div>
+            </div>
+
+          </div>
+        </div><!-- End Reports -->
+
+      </div><!-- End Left side columns -->
+
+      <div class="col-lg-4">
+        <!-- Recent Activity -->
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Dodaj wycieczkę <span>| Formularz</span></h5>
+            <app-adding (addTour)="addTour($event)"></app-adding>
+            </div>
+        </div><!-- End Recent Activity -->
+      </div>
+    </div>
+  </section>
+</main>
+
+

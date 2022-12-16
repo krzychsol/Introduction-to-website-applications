@@ -1,6 +1,6 @@
 <div class="container">
-    <p class="title">Add Post</p>
     <div class="inner-container">
+        <p class="title">Add Post</p>
         <form [formGroup]="newPostForm">
             <div class="form-field">
                 <label for="title">Title: </label>
@@ -17,7 +17,7 @@
             <button class="add-btn" (click)="sendData()">SEND</button>
         </form>
     </div>
-    <p class="title">Posty</p>
+    <p class="title">Posts</p>
     <div *ngIf="posts!=undefined">
         <div class="singlepost" *ngFor="let post of posts">
             <h3>UserID: {{post.userId}}, PostID:{{post["id"]}}</h3>
