@@ -7,7 +7,7 @@
     <app-rating (setRate)="setRate($event)" [rateVal]="tourData.rate"></app-rating>
 </div>
 <div id="info-sections">
-    <img src="{{tourData.imageURL}}" alt="photo">
+    <img routerLink="/details" src="{{tourData.imageURL}}" alt="photo" (click)="showDetails()">
     <div id="info">
         <p>Cel podróży: {{tourData.destination}}</p>
         <p>Data rozpoczęcia: {{tourData.dateBegin}}</p>

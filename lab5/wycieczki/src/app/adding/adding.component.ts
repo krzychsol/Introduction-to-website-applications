@@ -1,3 +1,4 @@
+//import { invalid } from "@angular/compiler/src/render3/view/util";
 import { NgModule, Component, Pipe, OnInit, EventEmitter, Output } from "@angular/core";
 import {
   ReactiveFormsModule,
@@ -12,7 +13,14 @@ import {
 import { BrowserModule } from "@angular/platform-browser";
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { Tour } from "../tour/tour.component";
-import { tours } from "../tours";
+import { CommonModule } from '@angular/common';
+import { AddingService } from "../adding.service";
+//import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { DbService } from "../db.service";
+//TODO
+//walidaja daty konca
+
 
 @Component({
   selector: 'app-adding',
@@ -22,7 +30,9 @@ import { tours } from "../tours";
 })
 export class AddingComponent implements OnInit {
 
-  constructor() {this.createForm();}
+  constructor(private addingService: DbService) {
+    this.createForm();
+  }
   
   @Output() addTour = new EventEmitter();
 
@@ -30,6 +40,7 @@ export class AddingComponent implements OnInit {
   dateSent2 = new Date;
 
   newTour: Tour = {
+      key: "",
       id: 1,
       name: '',
       destination: '',
@@ -75,19 +86,27 @@ export class AddingComponent implements OnInit {
     this.dateSent2 = e.target.value;
   }
 
+  
   onSubmit() {
     if (this.addingTripForm.valid) {
-      this.addTour.emit( {
-        id: 1,
+      //TODO
+      //this.newTour.imageURL = this.addingTripForm.value.imageUrl; //TODO
+
+      console.log(typeof this.addingTripForm.value.dateBegin);
+
+      this.addingService.createTour( {
+        key: "",
+        id: this.addingService.getFreeID(),
         name: this.addingTripForm.value.name,
         destination: this.addingTripForm.value.destination,
         dateBegin: this.addingTripForm.value.dateBegin,
         dateEnd: this.addingTripForm.value.dateEnd,
-        imageURL: this.imageUrl.value.imageUrl,
+        imageURL: this.addingTripForm.value.imageUrl,
         places: this.addingTripForm.value.places,
         money: this.addingTripForm.value.price,
         description: this.addingTripForm.value.description,
-        display: true
+        display: true,
+        rate: 1
     });
       this.addingTripForm.reset();
     }
@@ -110,7 +129,12 @@ export function dateBeginValidator(control: FormControl) {
 export function dateEndValidator(d: FormGroup): ValidatorFn { 
 
   return (control: AbstractControl): ValidationErrors | null => {
+    
+    console.log(d.value.da, control.value);
     if(control.value < d) return { 'invalidDateEnd': true };
     return null; 
+    
   }
+
+  
 }

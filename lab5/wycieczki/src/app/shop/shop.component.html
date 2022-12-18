@@ -1,0 +1,47 @@
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar"> <!--*ngIf="showSidebar"-->
+    <ul class="sidebar-nav" id="sidebar-nav">
+      <li class="nav-item">
+        <a class="nav-link " href="index.html">
+          <i class="bi bi-filter"></i>
+          <span>Filtry</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      <app-fliter (useFilters)="getToursList()"></app-fliter> <!--[tours]="toursData" (setMinMax2)="setMinMax2($event)"-->
+    </ul>
+</aside><!-- End Sidebar-->
+<main class="main" id="main">
+    <div class="pagetitle">
+      <h1>Panel główny</h1>
+    </div><!-- End Page Title -->
+    <section class="section dashboard">
+      <div class="row">
+        <!-- Left side columns -->
+        <div class="col-lg-12">
+            <div class="row">
+                <!-- Revenue Card -->
+                <div class="col-xxl-6 col-md-6">
+                    <app-booked-tours ></app-booked-tours><!--[bookedTours]="getBookedTours()"-->
+                </div><!-- End Revenue Card -->
+              </div>
+          <!-- Reports -->
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Aktualna lista wycieczek</h5>
+                <div id="tours">
+                  <ng-container *ngFor="let t of toursData" >
+                    <app-tour
+                      
+                    ></app-tour><!--*ngIf="ifDisplay(t.id)"
+                      [tourData]="t"-->
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  

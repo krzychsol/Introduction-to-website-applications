@@ -45,3 +45,16 @@ input, textarea {
     color: red;
 
 }
+
+.card-title{
+  font-size: 1.5em;
+  margin-left: 45px;
+}
+
+.col-lg-6{
+  margin: 0 auto;
+}
+
+.card{
+  margin-top: 100px;
+}
