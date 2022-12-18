@@ -26,8 +26,8 @@ tourRoute.route('/').get((req, res) => {
 })
 
 // Get Tour
-tourRoute.route('/read-tour/:key').get((req, res) => {
-    Tour.findById(req.params.key, (error, data) => {
+tourRoute.route('/read-tour/:id').get((req, res) => {
+    Tour.findById(req.params.id, (error, data) => {
     if (error) {
       return next(error)
     } else {
@@ -52,8 +52,8 @@ tourRoute.route('/update-tour/:key').put((req, res, next) => {
 })
 
 // Delete Tour
-tourRoute.route('/delete-tour/:key').delete((req, res, next) => {
-    Tour.findByIdAndRemove(req.params.key, (error, data) => {
+tourRoute.route('/delete-tour/:id').delete((req, res, next) => {
+    Tour.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
       return next(error);
     } else {

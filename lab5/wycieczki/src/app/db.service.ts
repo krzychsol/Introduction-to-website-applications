@@ -87,12 +87,12 @@ export class DbService {
     return this.tours;
   }
 
-  deleteTour(key: string) {
-      this.crudService.deleteTour(key).subscribe(res => {
+  deleteTour(e: number) {
+      this.crudService.deleteTour(e).subscribe(res => {
       })
 
       for(let t of this.tours) {
-        if(t.key === key) {
+        if(t.id === e) {
             this.tours.splice(t.id, 1);
             break;
           }

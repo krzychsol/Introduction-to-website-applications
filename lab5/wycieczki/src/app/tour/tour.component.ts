@@ -30,8 +30,6 @@ export interface TourData {
   cart: CartElement
 }
 
-
-
 @Component({
   selector: 'app-tour',
   templateUrl: './tour.component.html',
@@ -64,9 +62,9 @@ export class TourComponent implements OnInit {
 
   ngOnInit(): void {
     this.crudService.getTours().subscribe(res => {
-      this.tourData = res;
+      this.tourData = res as Tour[];
     })
-    console.log(this.tourData);
+
     this.placesReserved = this.dbService.getCartElements(this.tourData.id);
     this.setButtons();
     if(this.placesReserved > 0) this.displayMinusButton = true;
@@ -120,7 +118,7 @@ export class TourComponent implements OnInit {
   }
 
   deleteTour(e: number) {
-    this.dbService.deleteTour(this.tourData.key);
+    this.dbService.deleteTour(e);
   }
   showDetails(){
     this.router.navigate(['details', {tour: JSON.stringify(this.tourData), cart: JSON.stringify(this.cartData) }]);

@@ -36,8 +36,8 @@ export class CrudService {
   }
   
   // Get single object
-  getTour(key: any): Observable<any> {
-    let API_URL = `${this.REST_API}/read-tour/${key}`;
+  getTour(id: any): Observable<any> {
+    let API_URL = `${this.REST_API}/read-tour/${id}`;
     return this.httpClient.get(API_URL, { headers: this.httpHeaders }).pipe(
       map((res: any) => {
         return res || {};
@@ -55,8 +55,8 @@ export class CrudService {
   }
 
   // Delete
-  deleteTour(key: any): Observable<any> {
-    let API_URL = `${this.REST_API}/delete-tour/${key}`;
+  deleteTour(id: any): Observable<any> {
+    let API_URL = `${this.REST_API}/delete-tour/${id}`;
     return this.httpClient
       .delete(API_URL, { headers: this.httpHeaders })
       .pipe(catchError(this.handleError));
