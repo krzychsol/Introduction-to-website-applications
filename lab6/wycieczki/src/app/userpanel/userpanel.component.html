@@ -1,0 +1,197 @@
+<section style="background-color: #eee;">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{auth.userData.email}}</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">{{auth.userData.email}}</h5>
+          </div>
+        </div>
+        <div class="card mb-4 mb-lg-0">
+          <div class="card-body p-0">
+            <ul class="list-group list-group-flush rounded-3">
+              <li style="background-color: #c05820;color:white;" class="list-group-item d-flex justify-content-center align-items-center p-3">
+                <p class="mb-0">Gość: {{auth.userRoles.guest}}</p>
+              </li>
+              <li style="background-color: #333333;color:white;" class="list-group-item d-flex justify-content-center align-items-center p-3">
+                <p class="mb-0">Klient: {{auth.userRoles.client}}</p>
+              </li>
+              <li style="background-color: #55acee;color:white;" class="list-group-item d-flex justify-content-center align-items-center p-3">
+                <p class="mb-0">Manager: {{auth.userRoles.manager}}</p>
+              </li>
+              <li style="background-color: #ac2bac;color:white;" class="list-group-item d-flex justify-content-center align-items-center p-3">
+                <p class="mb-0">Admin: {{auth.userRoles.admin}}</p>
+              </li>
+              <li style="background-color: #3b5998;color:white;" class="list-group-item d-flex justify-content-center align-items-center p-3">
+                <p class="mb-0">Zbanowany: {{auth.userRoles.banned}}</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="row">
+            <h3 style="text-align:center;" class="mb-4">Informacje o użytkowniku</h3>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">E-mail</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{auth.userData.email}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">ID Użytkownika</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{auth.userData.uid}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Utworzono konto</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{auth.userData.metadata.creationTime}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Ostatnie logowanie</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{auth.userData.metadata.lastSignInTime}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-4 mb-md-0">
+              <div class="card-body">
+                <p class="mb-4"><span class="text-primary font-italic me-1">assigment</span> Project Status
+                </p>
+                <p class="mb-1" style="font-size: .77rem;">Web Design</p>
+                <div class="progress rounded" style="height: 5px;">
+                  <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: .77rem;">Website Markup</p>
+                <div class="progress rounded" style="height: 5px;">
+                  <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: .77rem;">One Page</p>
+                <div class="progress rounded" style="height: 5px;">
+                  <div class="progress-bar" role="progressbar" style="width: 89%" aria-valuenow="89"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template</p>
+                <div class="progress rounded" style="height: 5px;">
+                  <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: .77rem;">Backend API</p>
+                <div class="progress rounded mb-2" style="height: 5px;">
+                  <div class="progress-bar" role="progressbar" style="width: 66%" aria-valuenow="66"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-4 mb-md-0">
+              <div class="card-body">
+                <p class="mb-4"><span class="text-primary font-italic me-1">assigment</span> Project Status
+                </p>
+                <p class="mb-1" style="font-size: .77rem;">Web Design</p>
+                <div class="progress rounded" style="height: 5px;">
+                  <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: .77rem;">Website Markup</p>
+                <div class="progress rounded" style="height: 5px;">
+                  <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: .77rem;">One Page</p>
+                <div class="progress rounded" style="height: 5px;">
+                  <div class="progress-bar" role="progressbar" style="width: 89%" aria-valuenow="89"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template</p>
+                <div class="progress rounded" style="height: 5px;">
+                  <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: .77rem;">Backend API</p>
+                <div class="progress rounded mb-2" style="height: 5px;">
+                  <div class="progress-bar" role="progressbar" style="width: 66%" aria-valuenow="66"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--
+<div class="center">
+  <h2>User information</h2>
+  <ul>
+      <li><strong>Email: </strong>{{auth.userData.email}}</li>
+      <li><strong>Email confirmed: </strong>{{auth.userData.emailVerified}}</li>
+      <li><strong>UserID: </strong>{{auth.userData.uid}} </li>
+      <li><strong>Account created: </strong>{{auth.userData.metadata.creationTime}}</li>
+      <li><strong>Last successfull log in: </strong>{{auth.userData.metadata.lastSignInTime}} </li>
+  </ul>
+  <h2>Your privileges</h2>
+  <ul>
+      <li><strong>Guest: </strong>{{auth.userRoles?.guest}}</li>
+      <li><strong>Client: </strong>{{auth.userRoles?.client}}</li>
+      <li><strong>Manager: </strong>{{auth.userRoles?.menager}}</li>
+      <li><strong>Admin: </strong>{{auth.userRoles?.admin}}</li>
+      <li><strong>Banned: </strong>{{auth.userRoles?.banned}}</li>
+  </ul>
+  <h2>Order history</h2>
+  <table>
+      <tr>
+          <th>Date</th>
+          <th>Items</th>
+      </tr>
+      <ng-container *ngIf="orderHistory != undefined">
+          <ng-container *ngIf="orderHistoryIds.length>0 && dishesArr.length>0">
+              <ng-container *ngFor="let orderId of orderHistoryIds">
+                  <tr>
+                      <td>{{orderHistory[orderId].date}}</td>
+                      <td>{{getDishNames(orderId)}}</td>
+                  </tr>
+              </ng-container>
+          </ng-container>
+      </ng-container>
+
+  </table>
+</div>
+-->

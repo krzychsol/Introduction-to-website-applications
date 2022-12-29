@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark">
+    <span class="logo d-flex align-items-center" id="logo">
+      <img src="assets/img/logo.png" alt="">
+      <a class="navbar-brand" id="logo-title" routerLink="/" alt="Homepage">TravelShop</a>
+    </span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse justify-content-center" id="navbarColor03" [ngbCollapse]="isCollapsed">
+      <ul class="navbar-nav" id="nav-list">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">Strona główna</a>
+        </li>
+        <li *ngIf="auth.userRoles.admin == true" class="nav-item">
+            <a class="nav-link" routerLink="/admin">Panel Admina</a>
+        </li>
+        <li *ngIf="auth.userRoles.manager == true" class="nav-item">
+            <a class="nav-link" routerLink="/manager">Panel Managera</a>
+        </li>
+        <li *ngIf="auth.userData != null" class="nav-item">
+            <a class="nav-link" routerLink="/userpanel">{{auth.userData.email}}</a>
+        </li>
+        <li *ngIf="auth.userData != null" class="nav-item">
+            <a class="nav-link" (click)="auth.logout()">Wyloguj się</a>
+        </li>
+        <li *ngIf="auth.userData == null" class="nav-item">
+            <a class="nav-link" routerLink="/register">Zarejestruj się</a>
+        </li>
+        <li *ngIf="auth.userData == null" class="nav-item">
+            <a class="nav-link" routerLink="/login">Zaloguj się</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/shop">Oferta</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/adding">Dodaj</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cart">Koszyk</a>
+        </li>
+    </ul>
+    </div>
+  </nav>

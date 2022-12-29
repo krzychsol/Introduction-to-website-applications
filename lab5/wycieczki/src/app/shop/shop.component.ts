@@ -29,7 +29,7 @@ export class ShopComponent implements OnInit {
     destination: '',
     dateBegin: '',
     dateEnd: "",
-    imageURL: "assets/img/tour_pic.jpg",
+    imageURL: "../../assets/img/tour_pic.jpg",
     places: 0,
     money: 0,
     description: "",

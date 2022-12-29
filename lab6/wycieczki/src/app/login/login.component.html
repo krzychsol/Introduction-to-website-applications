@@ -1,0 +1,22 @@
+<div class="col-lg-6">
+  <!-- Recent Activity -->
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Zaloguj się <span>| Formularz</span></h5>
+      <!--<app-adding (addTour)="addTour($event)"></app-adding>-->
+      <form [formGroup]="loginForm">
+          <div>
+              <label>E-mail:</label><br>
+              <input class="center-input" placeholder="pat@example.com" formControlName="email" required>
+          </div>
+          <div>
+              <label>Hasło:</label><br>
+              <input class="center-input" type="password" formControlName="password">>
+          </div>
+          <button class="btn btn-primary btn1" type="submit" (click)="submitForm()">ZALOGUJ SIĘ</button>
+      </form>
+      <h5 *ngIf="showError">Wprowadź poprawne dane!</h5>
+      <h5 *ngIf="showOk">Poprawnie zarejestrowano!</h5>
+      </div>
+  </div><!-- End Recent Activity -->
+</div>

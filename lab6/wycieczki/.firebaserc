@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "travelagency-efd46": {
+      "hosting": {
+        "wycieczki": [
+          "travelagency-efd46"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "travelagency-efd46"
+  }
+}

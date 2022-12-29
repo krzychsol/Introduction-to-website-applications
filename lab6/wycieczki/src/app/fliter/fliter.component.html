@@ -1,0 +1,71 @@
+<li class="nav-item">
+    <a class="nav-link collapsed" data-bs-target="#destination-nav" data-bs-toggle="collapse" href="#">
+      <i class="bi bi-hexagon-fill"></i><span>Cel podróży</span><i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+    <ul id="destination-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+        <li *ngFor="let topping of destinations" [value]="topping">{{topping}}
+            <input type="checkbox" [name]="topping" (change)="onDestinationFilterChange($event)">
+        </li>
+    </ul>
+</li><!-- End Destination Nav -->
+
+<li class="nav-item">
+    <a class="nav-link collapsed" data-bs-target="#price-nav" data-bs-toggle="collapse" href="#">
+      <i class="bi bi-hexagon-fill"></i><span>Cena</span><i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+    <ul id="price-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+            <span>Wybierz cenę minimalną</span><br>
+            {{minMoney}}<input type="range" min="{{minMoney}}" max="{{this.filters.maxMoney}}" value="{{minMoney}}" (input)="changeMinMoney($event)">{{this.filters.maxMoney}}
+            <br><div id="r"> {{this.value1}}</div> 
+        </li>
+        <li>
+            <span>Wybierz cenę maksymalną</span><br>
+            {{this.filters.minMoney}}<input type="range" min="{{this.filters.minMoney}}" max="{{maxMoney}}" value="{{maxMoney}}" (input)="changeMaxMoney($event)">{{maxMoney}}
+            <br><div id="r"> {{this.value2}}</div> 
+        </li>
+    </ul>
+</li><!-- End Price Nav -->
+
+<li class="nav-item">
+    <a class="nav-link collapsed" data-bs-target="#rating-nav" data-bs-toggle="collapse" href="#">
+      <i class="bi bi-hexagon-fill"></i><span>Ocena podróży</span><i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+    <ul id="rating-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <span>Wybierz ocenę podróży</span><br>
+        <li> <div class="div1"></div> <input type="checkbox" [disabled]="!ratings.includes(1)" (change)="selectRating($event, 1)"></li>
+        <li> <div class="div1"></div><div class="div1"></div> <input type="checkbox" [disabled]="!ratings.includes(2)"(change)="selectRating($event, 2)"></li>
+        <li> <div class="div1"></div><div class="div1"></div><div class="div1"></div><input type="checkbox" [disabled]="!ratings.includes(3)"(change)="selectRating($event, 3)"></li>
+        <li><div class="div1"></div><div class="div1"></div><div class="div1"></div><div class="div1"></div> <input type="checkbox"[disabled]="!ratings.includes(4)" (change)="selectRating($event, 4)"></li>
+        <li><div class="div1"></div><div class="div1"></div><div class="div1"></div><div class="div1"></div><div class="div1"></div><input type="checkbox" [disabled]="!ratings.includes(5)"(change)="selectRating($event, 5)"> </li>
+        <li> <div class="div1"></div><div class="div1"></div><div class="div1"></div><div class="div1"></div><div class="div1"></div><div class="div1"></div><input type="checkbox"[disabled]="!ratings.includes(6)" (change)="selectRating($event, 6)"></li>
+    </ul>
+</li><!-- End Rating Nav -->
+
+<li class="nav-item">
+    <a class="nav-link collapsed" data-bs-target="#dateStart-nav" data-bs-toggle="collapse" href="#">
+      <i class="bi bi-hexagon-fill"></i><span>Data podróży</span><i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+    <ul id="dateStart-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+            <span>Wybierz datę początkową:</span><br><br>
+            <input class="center-input" 
+            type="date" 
+            name="dateEnd" 
+            min="{{dateSent|date:'yyyy-MM-dd'}}" 
+            max="{{this.filters.dateEnd|date:'yyyy-MM-dd'}}" 
+            (change)="dateBeginChange($event)"
+            placeholder="dd.mm.yyyy">
+        </li>
+        <li>
+            <br><span>Wybierz datę końcową:</span><br><br>
+            <input class="center-input" 
+            type="date" 
+            name="dateEnd" 
+            min="{{dateSent2|date:'yyyy-MM-dd'}}" 
+            (change)="dateEndChange($event)"
+            placeholder="dd.mm.yyyy">
+        </li>
+    </ul>
+</li><!-- End Rating Nav -->
+<button class="btn btn-primary" id="reset-btn" (click)="removeFilters()">Wyczyść filtry</button>

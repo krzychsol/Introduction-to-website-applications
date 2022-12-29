@@ -1,0 +1,111 @@
+<div class="col-lg-6">
+    <!-- Recent Activity -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Dodaj wycieczkę <span>| Formularz</span></h5>
+        <!--<app-adding (addTour)="addTour($event)"></app-adding>-->
+        <form novalidate [formGroup]="addingTripForm" (submit)="onSubmit()">
+            <div>
+                <label>Tutył wycieczki:</label><br>
+                <input class="center-input" 
+                    id="name" 
+                    name="name" 
+                    formControlName="name">
+                <div *ngIf="name.invalid &&  name.touched"
+                    class="alert alert-danger"> Podaj nazwę swojej wycieczki! </div>
+            </div>
+            
+            <div>
+                <label>Cel podróży:</label><br>
+                <input class="center-input" 
+                    name="destination" 
+                    formControlName="destination">
+                <div *ngIf="destination.invalid &&  destination.touched"
+                    class="alert alert-danger"> Proszę podać cel wycieczki! </div>
+            </div>
+        
+            <div>
+                <label>Data rozpoczęcia wycieczki:</label><br>
+                <input class="center-input"  
+                    type="date" 
+                    name="dateBegin" 
+                    (change)="dateBeginChange($event)"
+                    formControlName="dateBegin" 
+                    min="{{dateSent|date:'yyyy-MM-dd'}}" 
+                    max="{{addingTripForm.value.dateEnd|date:'yyyy-MM-dd'}}" 
+                    placeholder="dd.mm.yyyy">
+                <div *ngIf="dateBegin.invalid && dateBegin.touched"
+                    class="alert alert-danger">
+                    <div *ngIf="dateBegin.errors?.required"> Proszę podać datę rozpoczęcia! </div>
+                </div>
+            </div>
+            
+            
+            <div>
+                <label>Data zakończenia wycieczki:</label><br>
+                <input class="center-input" 
+                    type="date" 
+                    name="dateEnd" 
+                    formControlName="dateEnd" 
+                    min="{{dateSent2|date:'yyyy-MM-dd'}}" 
+                    placeholder="dd.mm.yyyy">
+                <div *ngIf="dateEnd.invalid && dateEnd.touched"
+                    class="alert alert-danger">
+                    <div *ngIf="dateEnd.errors?.required"> Proszę podać datę końca wycieczki! </div>
+                    <div *ngIf="dateEnd.errors?.invalidDateEnd"> Data nie może być z przeszłości!</div>
+                </div>
+            </div>
+            
+            <div>
+                <label>Cena:</label><br>
+                <input  class="center-input" 
+                type="number" 
+                name="price" 
+                formControlName="price">
+        
+                <div *ngIf="price.invalid && price.touched"
+                    class="alert alert-danger">
+                    <div *ngIf="price.errors?.required"> Proszę podać kwotę wycieczki! </div>
+                    <div *ngIf="price.errors?.min"> Cena nie może być wartością ujemną!</div>
+                </div>
+            </div>
+            
+            
+            <div>
+                <label>Ilość miejsc:</label><br>
+                <input class="center-input" 
+                    type="number" 
+                    name="places" 
+                    formControlName="places">
+                <div *ngIf="places.invalid && places.touched"
+                    class="alert alert-danger">
+                    <div *ngIf="places.errors?.required"> Proszę podać ilość dostępnych miejsc </div>
+                    <div *ngIf="places.errors?.min"> Ilość miejsc nie może być ujemna!</div>
+                </div>
+            </div>
+            
+            
+            <div>
+                <label>Opis:</label><br>
+                <textarea class="center-input" 
+                name="description" 
+                cols="25" 
+                rows="10" 
+                formControlName="description"></textarea>
+                <div *ngIf="description.invalid &&  description.touched"
+                    class="alert alert-danger"> Opis nie może być pusty! </div>
+            </div>
+            
+            <div>
+                <label>Zdjęcie:</label><br>
+                <input class="center-input" 
+                    name="imageUrl" 
+                    formControlName="imageUrl">
+            </div>
+            
+            <button class="btn1" type="submit" [disabled]="!addingTripForm.valid" >DODAJ</button>
+        </form>
+        </div>
+    </div><!-- End Recent Activity -->
+  </div>
+

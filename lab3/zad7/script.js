@@ -19,6 +19,8 @@ function fillData(filtered,id) {
     }
     cities = cities.substring(0, cities.length - 2);
     cities = cities + ".";
+
+    console.log(id,cities);
     document.getElementById(id).textContent = cities;
 }
 
@@ -145,7 +147,7 @@ async function getG(data) {
 
     var answer = true;
     var cities_cnt = 0;
-    console.log(filtered);
+    //console.log(filtered);
     for (var el in filtered) {
         if (!json[el].people > 5000) {
             answer = false;

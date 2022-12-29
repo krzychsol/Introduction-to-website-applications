@@ -1,0 +1,13 @@
+<div class="card info-card sales-card" [style.background-color]='bookedTours < 10 ? "#ff3333" : "#00b300"' >
+    <div class="card-body">
+        <h5 class="card-title">Twoje rezerwacje</h5>
+        <div class="d-flex align-items-center">
+          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+            <i class="bi bi-cart"></i>
+          </div>
+          <div class="ps-3">
+            <h6>Ilość: {{bookedTours}}</h6>
+          </div>
+        </div>
+    </div>
+</div>
