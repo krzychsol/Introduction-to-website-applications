@@ -8,6 +8,8 @@ import { RegisterComponent } from './register/register.component';
 import { ShopComponent } from './shop/shop.component';
 import { UserpanelComponent } from './userpanel/userpanel.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { AdminpanelComponent } from './adminpanel/adminpanel.component';
+import { ManagerpanelComponent } from './managerpanel/managerpanel.component';
 
 const routes: Routes = [
   { path: 'shop', component: ShopComponent },
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'userpanel', component: UserpanelComponent },
+  { path: 'adminpanel', component: AdminpanelComponent},
+  { path: 'managerpanel', component: ManagerpanelComponent},
   { path: '', component: HomepageComponent }
 ];
 

@@ -13,10 +13,10 @@
           <a class="nav-link" routerLink="/">Strona główna</a>
         </li>
         <li *ngIf="auth.userRoles.admin == true" class="nav-item">
-            <a class="nav-link" routerLink="/admin">Panel Admina</a>
+            <a class="nav-link" routerLink="/adminpanel">Panel Admina</a>
         </li>
         <li *ngIf="auth.userRoles.manager == true" class="nav-item">
-            <a class="nav-link" routerLink="/manager">Panel Managera</a>
+            <a class="nav-link" routerLink="/managerpanel">Panel Managera</a>
         </li>
         <li *ngIf="auth.userData != null" class="nav-item">
             <a class="nav-link" routerLink="/userpanel">{{auth.userData.email}}</a>
@@ -32,9 +32,6 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/shop">Oferta</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/adding">Dodaj</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/cart">Koszyk</a>

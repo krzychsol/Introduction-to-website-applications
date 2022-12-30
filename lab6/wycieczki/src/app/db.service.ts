@@ -30,6 +30,22 @@ export class DbService {
     
   }
 
+  removeTour(idx: number) {
+    console.log(idx);
+    this.db
+      .list('tours')
+      .snapshotChanges()
+      .pipe(first())
+      .subscribe((items: any) => {
+        for (let i of items) {
+          if (i.payload.val().id == idx) {
+            console.log(i.payload.key);
+            this.db.list('tours').remove(i.payload.key);
+          }
+        }
+      });
+  }
+
   getToDisplayList(): number[] {
     return this.toursWithFilters;
   }
@@ -279,7 +295,7 @@ export class DbService {
     this.db.list('tours').snapshotChanges().pipe(first()).subscribe((items: any) => {
       for (let i of items) {
         if (i.payload.val().id == idS) {
-          this.db.list('ours').update(i.payload.key, data)
+          this.db.list('tours').update(i.payload.key, data)
         }
       }
     });

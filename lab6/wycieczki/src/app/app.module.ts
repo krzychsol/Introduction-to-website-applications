@@ -36,6 +36,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { HomepageComponent } from './homepage/homepage.component';
 import {NgbCollapseModule} from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AdminpanelComponent } from './adminpanel/adminpanel.component';
+import { ManagerpanelComponent } from './managerpanel/managerpanel.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     RegisterComponent,
     UserpanelComponent,
     HomepageComponent,
-    NavbarComponent
+    NavbarComponent,
+    AdminpanelComponent,
+    ManagerpanelComponent
   ],
   imports: [
     BrowserModule,
