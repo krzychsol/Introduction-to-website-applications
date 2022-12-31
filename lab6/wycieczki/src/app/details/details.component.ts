@@ -4,6 +4,13 @@ import { CartElement } from '../cart/cart.component';
 import { DbService } from '../db.service';
 import { LocalService } from '../local.service';
 import { Tour, TourData } from '../tour/tour.component';
+import { first, Subscription } from 'rxjs';
+
+interface review {
+  nick: string;
+  date: string;
+  review: string;
+}
 
 @Component({
   selector: 'app-details',
@@ -12,61 +19,106 @@ import { Tour, TourData } from '../tour/tour.component';
 })
 export class DetailsComponent implements OnInit {
 
-
-  tour!: TourData;
+  
+  //tour!: TourData;
   placesReserved: number = 0;
   displayMinusButton: boolean = false;
   displayPlusButton: boolean = true;
   displayDeleteButton: boolean = true;
-  tourRating: number = 1;
-  tourData!: Tour;
+  //tourRating: number = 1;
+  //tourData!: Tour;
   cartData!: CartElement;
 
 
   constructor(
     private route: ActivatedRoute,
-    private dbService: DbService, private cartSerivce: LocalService
+    private db: DbService,
+    private cartSerivce: LocalService
   ) { }
 
+  private subscription: Subscription | undefined;
+  id: number = -1;
+  tour: Tour[] = [];
+  selected: number = 0;
+  reviews: review[] = []
+
   ngOnInit(): void {
-    this.dbService.updateLocalCartList();
+    window.scroll(0, 0);
+    this.subscription = this.route.params.subscribe((params) => {
+      this.id = params['id'];
+      this.db
+        .getToursList()
+        .pipe(first())
+        .subscribe((tours: any[]) => {
+          let tour: any;
+          for (let t of tours) {
+            if (t.id == this.id) {
+              tour = t;
+              break;
+            }
+          }
+          this.tour.push({
+            id: tour.id,
+            name: tour.name,
+            destination: tour.destination,
+            dateBegin: tour.dateBegin,
+            dateEnd: tour.dateEnd,
+            imageURL: tour.imageURL,
+            places: tour.places,
+            money: tour.money,
+            description: tour.description,
+            display: tour.display,
+            rate: tour.rate,
+            key: tour.key
+          } as Tour);
+        })
+    })
+    this.db.updateLocalCartList();
     this.route.params.subscribe(parameter => {
       //console.log(parameter);
-      this.tourData = JSON.parse(parameter['tour']) as Tour;
+      //this.tourData = JSON.parse(parameter['tour']) as Tour;
       this.cartData = JSON.parse(parameter['cart']) as CartElement;
     })
     //console.log(this.tourData);
 
     //console.log(this.tourData.id);
 
-    this.placesReserved = this.dbService.getCartElements(this.tourData.id);
+    this.placesReserved = this.db.getCartElements(this.id);
     this.setButtons();
     if(this.placesReserved > 0) this.displayMinusButton = true;
     this.cartData = {
-      tourKey: this.tourData.key,
-      id: this.tourData.id,
-      name: this.tourData.name,
-      money: this.tourData.money,
+      tourKey: this.tour[0].key,
+      id: this.tour[0].id,
+      name: this.tour[0].name,
+      money: this.tour[0].money,
       elements: 1
     }
   }
 
+  ngOnDestroy(): void {
+    if (this.subscription) this.subscription.unsubscribe();
+  }
+
+  addReview(newReview: review) {
+    this.reviews.push(newReview);
+  }
+
   setButtons() {
     if(this.placesReserved > 0) this.displayMinusButton = true;
-    if(this.placesReserved == this.tourData.places) this.displayPlusButton = false;
+    if(this.placesReserved == this.tour[0].places) this.displayPlusButton = false;
     if(this.placesReserved == 0 ) this.displayMinusButton = false;
-    if(this.placesReserved < this.tourData.places) this.displayPlusButton = true;
+    if(this.placesReserved < this.tour[0].places) this.displayPlusButton = true;
 
   }
 
   incrementPlaces() {
     //console.log(this.placesReserved);
-    this.dbService.updateLocalCartList();
-    if(this.placesReserved < this.tourData.places) {
+    this.db.updateLocalCartList();
+    if(this.placesReserved < this.tour[0].places) {
       this.placesReserved += 1;
       //console.log(this.tourData.key);
-      //this.addTourToBasket.emit(this.tourData);
-      this.dbService.addToCart(this.cartData, this.placesReserved);
+      this.cartSerivce.addTour(this.tour[0]);
+      this.db.addToCart(this.cartData, this.placesReserved);
       this.setButtons();
     }
     //console.log(this.cartData.elements);
@@ -76,16 +128,16 @@ export class DetailsComponent implements OnInit {
     if(this.placesReserved > 0) {
       this.placesReserved -= 1;
       //this.removeTourFromBasket.emit(this.tourData);
-      this.dbService.deleteFromCart(this.cartData, this.placesReserved);
+      this.db.deleteFromCart(this.cartData, this.placesReserved);
       //this.cartSerivce.removeTour(this.tourData);
       this.setButtons();
       }
   }
 
   setRate(e:number) {
-    this.tourData.rate = e;
-    this.dbService
-      .updateRate(this.tourData.key, { rate: e })
+    this.tour[0].rate = e;
+    this.db
+      .updateRate(this.tour[0].key, { rate: e })
   }
 
 

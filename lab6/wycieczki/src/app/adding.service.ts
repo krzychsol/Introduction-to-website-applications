@@ -20,5 +20,5 @@ export class AddingService {
   createTour(tour: Tour): void {
     this.toursRef.push({...tour})
   }
-
+  
 }

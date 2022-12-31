@@ -20,8 +20,9 @@ input:focus {
 }
 
 .btn1 {
-  width: 100px;;
-  background-color: #1f5f9b;
+  width: 180px;;
+  background: rgb(130,0,222);
+  background: linear-gradient(278deg, rgba(130,0,222,1) 0%, rgba(0,37,139,1) 62%, rgba(11,0,20,1) 100%);
   color: white;
   padding: 14px 20px;
   margin: 8px 0;

@@ -17,8 +17,8 @@
                         <td>{{tour.id}}</td>
                         <td>{{tour.name}}</td>
                         <td>
-                          <button (click)="deleteTour(tour.id)" class="button-accent">USUŃ</button>
-                          <button routerLink="modify/{{tour.id}}" class="button-accent">MODYFIKUJ</button>
+                          <button (click)="deleteTour(tour.id)">USUŃ</button>
+                          <button routerLink="modify/{{tour.id}}" class="btn-modify">MODYFIKUJ</button>
                         </td>
                       </tr>
                 </tbody>

@@ -5,6 +5,8 @@
 }
 
 #top-section {
+    color: #fff;
+    background-color: #012970;
     display: flex;
     justify-content: space-between;
 }
@@ -42,8 +44,8 @@
 #bottom-section {
     display: flex;
     justify-content: space-between;
-    background-color: #e9e3e3;
-    background-color:#5076beae;
+    color:  #fff;
+    background-color:#012970;
 }
 
 #buttons > button{
@@ -90,6 +92,6 @@
     z-index: 10;
 }
 .content3 {
-    border: 4px solid #5076be;
+    border: 4px solid #012970;
     z-index: 10;
 }

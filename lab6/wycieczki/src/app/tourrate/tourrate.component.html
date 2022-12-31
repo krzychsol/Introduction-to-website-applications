@@ -1,0 +1,28 @@
+<div class="col-lg-6">
+    <!-- Recent Activity -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Dodaj recenzję <span>| Formularz</span></h5>
+        <!--<app-adding (addTour)="addTour($event)"></app-adding>-->
+        <h5 *ngIf="auth.userRoles.banned==true" class="errors">Masz zablokowaną opcję dodawania recenzji</h5>
+  
+        <ng-container *ngIf="auth.userRoles.banned==false">
+        <form [formGroup]="addReview">
+            <label for="name">Nick</label>
+            <input id="name" type="text" formControlName="nickname" />
+            <label for="date">Data zakupu</label>
+            <input id="date" type="date" formControlName="date" />
+            <label for="review">Treść recenzji</label>
+            <textarea id="review" type="text" formControlName="review" cols=60 rows="5"></textarea>
+            <button type="submit" [disabled]="!addReview.valid" (click)="submitForm()">Dodaj recenzję</button>
+        </form>
+        <div class="errors">
+            <div *ngIf="!addReview.get('nickname')!.valid">Nick powinien mieć 3+ znaków.</div>
+            <div *ngIf="!addReview.get('date')!.valid">Wprowadź poprawną datę</div>
+            <div *ngIf="!addReview.get('review')!.valid">Recenzja powinna zawierać od 10 do 300 znaków</div>
+        </div>
+        </ng-container>
+        </div>
+    </div><!-- End Recent Activity -->
+  </div>
+

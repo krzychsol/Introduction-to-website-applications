@@ -10,18 +10,54 @@ import { UserpanelComponent } from './userpanel/userpanel.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 import { ManagerpanelComponent } from './managerpanel/managerpanel.component';
+import { ModifyTourComponent } from './modify-tour/modify-tour.component';
+import { TourDetailsGuard } from './guard/tour-details.guard';
+import { AuthGuard } from './guard/auth.guard';
+import { LoginTwiceGuard } from './guard/login-twice.guard';
+import { MenagerGuard } from './guard/menager.guard';
+import { AdminGuard } from './guard/admin.guard';
 
 const routes: Routes = [
   { path: 'shop', component: ShopComponent },
   { path: 'adding', component: AddingComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'details', component: DetailsComponent },
-  { path: 'login', component: LoginComponent },
+  {
+    path: 'cart',
+    component: CartComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'shop/details/:id',
+    component: DetailsComponent,
+    canActivate: [TourDetailsGuard]
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [LoginTwiceGuard]
+  },
   { path: 'register', component: RegisterComponent },
-  { path: 'userpanel', component: UserpanelComponent },
-  { path: 'adminpanel', component: AdminpanelComponent},
-  { path: 'managerpanel', component: ManagerpanelComponent},
-  { path: '', component: HomepageComponent }
+  {
+    path: 'userpanel',
+    component: UserpanelComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'adminpanel',
+    component: AdminpanelComponent,
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'managerpanel',
+    component: ManagerpanelComponent,
+    canActivate: [MenagerGuard],
+  },
+  {
+    path: 'managerpanel/modify/:id',
+    component: ModifyTourComponent,
+    canActivate: [AuthGuard, MenagerGuard],
+  },
+  { path: '', component: HomepageComponent },
+  //{ path: '**', component: PagenotfoundComponent }
 ];
 
 @NgModule({

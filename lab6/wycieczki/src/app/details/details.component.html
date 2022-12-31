@@ -1,37 +1,58 @@
-<p>details works!</p>
-<p>with time, this page will be upgraded</p>
-
-
-<div id="content">
-    <div id="top-section" class = "top-section3"> 
-        <p>Name: {{tourData.name }}</p>
-        <app-rating (setRate)="setRate($event)" [rateVal]="tourData.rate"></app-rating>
+<div class="col-lg-6">
+    <div class="inner">
+        <a routerLink="/shop">
+            <div>
+                <button class="btn-back">Powrót do listy wycieczek</button>
+            </div>
+        </a>
     </div>
-    <div id="info-sections">
-        <img src="{{tourData.imageURL}}" alt="photo">
-        <div id="info">
-            <p>Destination: {{tourData.destination}}</p>
-            <p>Data rozpoczęcia: {{tourData.dateBegin}}</p>
-            <p>Data zakoczenia: {{tourData.dateEnd}}</p>
-            <p>Opis</p>
-            <p>{{tourData.description}}</p>
+    <div id="content">
+        <div id="top-section" class = "top-section3"> 
+            <p>Name: {{tour[0].name }}</p>
+            <app-rating (setRate)="setRate($event)" [rateVal]="tour[0].rate"></app-rating>
         </div>
-    </div>   
-    <div id="places-sections">
-        <p>Places: {{placesReserved}}/{{tourData.places}}</p>
-        <div *ngIf="tourData.places - placesReserved == 1" id="lastPlace">
-            Last free place!
+        <div id="info-sections">
+            <img src="{{tour[0].imageURL}}" alt="photo">
+            <div id="info">
+                <p>Destination: {{tour[0].destination}}</p>
+                <p>Data rozpoczęcia: {{tour[0].dateBegin}}</p>
+                <p>Data zakoczenia: {{tour[0].dateEnd}}</p>
+                <p>Opis</p>
+                <p>{{tour[0].description}}</p>
+            </div>
+        </div>   
+        <div id="places-sections">
+            <p>Places: {{placesReserved}}/{{tour[0].places}}</p>
+            <div *ngIf="tour[0].places - placesReserved == 1" id="lastPlace">
+                Last free place!
+            </div>
+            <div *ngIf="tour[0].places - placesReserved == 0" id="noPlace">
+                No places availalble!
+            </div>
         </div>
-        <div *ngIf="tourData.places - placesReserved == 0" id="noPlace">
-            No places availalble!
+        <div id="bottom-section">
+            <p>Price: {{tour[0].money | currency}}</p>
+            <div id=buttons>
+                <button id="btnAdd"(click)="incrementPlaces()" [style.visibility]="displayPlusButton ? 'visible' : 'hidden'">+</button>
+                <button id="btnOdd" (click)="decrementPlaces()" [style.visibility]="displayMinusButton ? 'visible' : 'hidden'">-</button>
+                
+            </div>
         </div>
-    </div>
-    <div id="bottom-section">
-        <p>Price: {{tourData.money | currency}}</p>
-        <div id=buttons>
-            <button id="btnAdd"(click)="incrementPlaces()" [style.visibility]="displayPlusButton ? 'visible' : 'hidden'">+</button>
-            <button id="btnOdd" (click)="decrementPlaces()" [style.visibility]="displayMinusButton ? 'visible' : 'hidden'">-</button>
+        <ng-container *ngIf="reviews.length>0">
             
-        </div>
-    </div>
+            <div class="card">
+                <div class="card-body">
+                  <div class="review" *ngFor="let review of reviews">
+                    <span class="strong">Użytkownik: </span><span>{{review.nick}}</span>
+                    <p></p>
+                    <span class="strong">Data: </span><span>{{review.date}}</span>
+                    <p></p>
+                    <span class="strong">Treść: </span><span>{{review.review}}</span>
+                </div>
+                </div>
+            </div>
+        </ng-container>
+        <app-tourrate (newReviewEvent)="addReview($event)"></app-tourrate>
+</div>
+
     

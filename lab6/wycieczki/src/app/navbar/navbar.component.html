@@ -18,6 +18,9 @@
         <li *ngIf="auth.userRoles.manager == true" class="nav-item">
             <a class="nav-link" routerLink="/managerpanel">Panel Managera</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/shop">Oferta</a>
+        </li>
         <li *ngIf="auth.userData != null" class="nav-item">
             <a class="nav-link" routerLink="/userpanel">{{auth.userData.email}}</a>
         </li>
@@ -29,12 +32,6 @@
         </li>
         <li *ngIf="auth.userData == null" class="nav-item">
             <a class="nav-link" routerLink="/login">Zaloguj się</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/shop">Oferta</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/cart">Koszyk</a>
         </li>
     </ul>
     </div>

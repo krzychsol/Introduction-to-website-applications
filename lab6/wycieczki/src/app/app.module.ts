@@ -38,6 +38,8 @@ import {NgbCollapseModule} from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 import { ManagerpanelComponent } from './managerpanel/managerpanel.component';
+import { ModifyTourComponent } from './modify-tour/modify-tour.component';
+import { TourrateComponent } from './tourrate/tourrate.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { ManagerpanelComponent } from './managerpanel/managerpanel.component';
     HomepageComponent,
     NavbarComponent,
     AdminpanelComponent,
-    ManagerpanelComponent
+    ManagerpanelComponent,
+    ModifyTourComponent,
+    TourrateComponent
   ],
   imports: [
     BrowserModule,

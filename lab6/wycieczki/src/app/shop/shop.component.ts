@@ -51,7 +51,7 @@ export class ShopComponent implements OnInit {
   }
 
   getToursList() {
-    this.serverService.getToursList().snapshotChanges().pipe(
+    this.serverService.getToursListFb().snapshotChanges().pipe(
       map(changes => changes.map(c => ({key : c.payload.key, ...c.payload.val()})))
     ).subscribe(tours =>{
       this.toursData = tours as Tour[];

@@ -93,8 +93,12 @@ export class DbService {
     return sum;
   }
 
-  getToursList()  {
+  getToursListFb() {
     return this.toursRef;
+  }
+
+  getToursList()  {
+    return this.toursRef.valueChanges();
   }
 
   deleteTour(key: string) {
@@ -291,7 +295,7 @@ export class DbService {
     }
   }
 
-  updateTour(data: any, idS:string){
+  updateTour(data: any, idS:number){
     this.db.list('tours').snapshotChanges().pipe(first()).subscribe((items: any) => {
       for (let i of items) {
         if (i.payload.val().id == idS) {

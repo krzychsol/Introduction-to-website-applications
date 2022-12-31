@@ -20,7 +20,7 @@ export class ManagerpanelComponent implements OnInit{
   tours: Tour[] = [];
 
   ngOnInit(): void {
-    this.db.getToursList().valueChanges().subscribe((change) => {
+    this.db.getToursList().subscribe((change) => {
       this.tours = [];
       for(let tour of change){
         this.tours.push({
